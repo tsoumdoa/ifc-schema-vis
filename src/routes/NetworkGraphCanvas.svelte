@@ -75,7 +75,7 @@
 	}
 	let showCard;
 	let transform = d3.zoomIdentity;
-	let simulation, context;
+	let simulation, context, zoom;
 	let dpi = 1;
 	onMount(() => {
 		dpi = window.devicePixelRatio || 1;
@@ -110,7 +110,18 @@
 
 		d3.select(context.canvas).on('click', () => {
 			if (activeNode) {
-				showCard = JSON.parse(JSON.stringify({ id: activeNode.id, details: activeNode.details }));
+				const parentLink = links.find((l) => l.target.id === activeNode.id);
+				if (parentLink && parentLink.source) {
+					const parentNode = parentLink.source;
+					const newTransform = d3.zoomIdentity
+						.translate(width / 2, height / 2)
+						.scale(transform.k > 2 ? transform.k : 2)
+						.translate(-parentNode.x, -parentNode.y);
+
+					d3.select(canvas).transition().duration(750).call(zoom.transform, newTransform);
+				} else {
+					showCard = JSON.parse(JSON.stringify({ id: activeNode.id, details: activeNode.details }));
+				}
 			}
 		});
 
@@ -139,9 +150,28 @@
 		context.scale(transform.k, transform.k);
 
 		links.forEach((d) => {
+			const angle = Math.atan2(d.target.y - d.source.y, d.target.x - d.source.x);
+			const nodeRadius = 2 + Math.sqrt(d.target.size) / 5;
+			const targetX = d.target.x - nodeRadius * Math.cos(angle);
+			const targetY = d.target.y - nodeRadius * Math.sin(angle);
+			const headlen = 10; // length of head in pixels
+
 			context.beginPath();
 			context.moveTo(d.source.x, d.source.y);
-			context.lineTo(d.target.x, d.target.y);
+			context.lineTo(targetX, targetY);
+
+			// arrowhead
+			context.moveTo(targetX, targetY);
+			context.lineTo(
+				targetX - headlen * Math.cos(angle - Math.PI / 6),
+				targetY - headlen * Math.sin(angle - Math.PI / 6)
+			);
+			context.moveTo(targetX, targetY);
+			context.lineTo(
+				targetX - headlen * Math.cos(angle + Math.PI / 6),
+				targetY - headlen * Math.sin(angle + Math.PI / 6)
+			);
+
 			context.globalAlpha = 0.3;
 			context.strokeStyle = '#999';
 			context.lineWidth = Math.cbrt(d.value) / 2;
