@@ -34,7 +34,7 @@
 			graph.links
 				.filter((link) => link.source == d.id || link.target == d.id)
 				.map((link) => link.value)
-				.reduce((a, b) => a + b),
+				.reduce((a, b) => a + b, 0),
 			2
 		);
 		if (d.id == 'You') {
