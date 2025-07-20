@@ -3,17 +3,27 @@
 	import data from './data.js';
 </script>
 
+<div class="container">
+	<h2 style="color:white">Graph of how much you've messaged each friend</h2>
+	<div class="chart">
+		<NetworkGraph graph={data} />
+	</div>
+</div>
+
 <style>
 	.chart {
-		width: 100%;
-		max-width: 640px;
-		height: calc(100% - 4em);
-		min-height: 280px;
-		max-height: 480px;
+		width: 100dvw;
+		height: 100dvh;
 		margin: 0 auto;
+		display: flex;
+		flex-direction: column;
+	}
+	.container {
+		padding: 1rem;
+		width: 100vw;
+		height: 100vh;
+	}
+	h2 {
+		margin: 0;
 	}
 </style>
-
-<div class="chart">
-	<NetworkGraph graph={data}/>
-</div>
