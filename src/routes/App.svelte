@@ -4,7 +4,7 @@
 </script>
 
 <div class="container">
-	<h2 style="color:white">Graph of how much you've messaged each friend</h2>
+	<h2 style="color:white">IFX2X3 Schema Network</h2>
 	<div class="chart">
 		<NetworkGraph graph={data} />
 	</div>
