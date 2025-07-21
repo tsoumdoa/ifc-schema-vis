@@ -28,7 +28,20 @@
 
 	let showCard;
 	let transform = d3.zoomIdentity;
-	let simulation, context, zoom;
+	interface MyNode extends d3.SimulationNodeDatum {
+		id: string;
+		size: number;
+		details: { [key: string]: any }; // Adjust this based on your actual details structure
+	}
+
+	interface MyLink extends d3.SimulationLinkDatum<MyNode> {
+		source: string | MyNode; // D3's forceLink can use string IDs or node objects
+		target: string | MyNode;
+		value: number;
+	}
+	let simulation: Simulation<MyNode, MyLink>;
+	let context: CanvasRenderingContext2D;
+	let zoom: ZoomBehavior<Element, unknown>;
 	let dpi = 1;
 	onMount(() => {
 		dpi = window.devicePixelRatio || 1;
@@ -46,7 +59,10 @@
 			)
 			.force('charge', d3.forceManyBody())
 			.force('center', d3.forceCenter(width / 2, height / 2))
-			//.force('collision', d3.forceCollide().radius((d) => Math.sqrt(d.size)/4))
+			.force(
+				'collision',
+				d3.forceCollide().radius((d) => 80 + Math.sqrt(d.size) / 5)
+			)
 			.on('tick', simulationUpdate);
 
 		// title
@@ -170,7 +186,12 @@
 	}
 
 	function resize() {
-		({ width, height } = canvas);
+		if (!canvas) return;
+		fitToContainer(canvas);
+		if (simulation) {
+			simulation.force('center', d3.forceCenter(width / 2, height / 2));
+			simulation.alpha(0.3).restart();
+		}
 	}
 	function fitToContainer(node: any) {
 		dpi = window.devicePixelRatio || 1;
@@ -226,4 +247,3 @@
 		padding: 10px;
 	}
 </style>
-

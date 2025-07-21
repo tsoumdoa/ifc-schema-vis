@@ -12,18 +12,20 @@
 
 <style>
 	.chart {
-		width: 100dvw;
-		height: 100dvh;
-		margin: 0 auto;
+		width: 100%;
+		height: 100%;
+		margin: 0rem;
 		display: flex;
 		flex-direction: column;
 	}
 	.container {
-		padding: 1rem;
+		padding-top: 0rem;
+		margin: 0rem;
 		width: 100vw;
 		height: 100vh;
 	}
 	h2 {
-		margin: 0;
+		margin: 0.8rem;
+		margin-left: 0.8rem;
 	}
 </style>
