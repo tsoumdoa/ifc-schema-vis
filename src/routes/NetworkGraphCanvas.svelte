@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import * as d3 from 'd3';
+	import type { Simulation, ZoomBehavior } from 'd3';
 
 	export let graph: { nodes: any[]; links: any[] };
 
@@ -119,11 +120,36 @@
 		context.scale(transform.k, transform.k);
 
 		links.forEach((d) => {
+			const sourceRadius = 40 + Math.sqrt(d.source.size) / 5;
+			const targetRadius = 40 + Math.sqrt(d.target.size) / 5;
+			const angle = Math.atan2(d.target.y - d.source.y, d.target.x - d.source.x);
+
+			const startX = d.source.x + sourceRadius * Math.cos(angle);
+			const startY = d.source.y + sourceRadius * Math.sin(angle);
+			const endX = d.target.x - targetRadius * Math.cos(angle);
+			const endY = d.target.y - targetRadius * Math.sin(angle);
+
 			context.beginPath();
-			context.moveTo(d.source.x, d.source.y);
-			context.lineTo(d.target.x, d.target.y);
+			context.moveTo(startX, startY);
+			context.lineTo(endX, endY);
 			context.strokeStyle = '#000';
-			context.lineWidth = 1;
+			context.lineWidth = 1.5;
+			context.stroke();
+
+			// arrowhead
+			const headlen = 10;
+			context.beginPath();
+			context.moveTo(endX, endY);
+			context.lineTo(
+				endX - headlen * Math.cos(angle - Math.PI / 6),
+				endY - headlen * Math.sin(angle - Math.PI / 6)
+			);
+			context.moveTo(endX, endY);
+			context.lineTo(
+				endX - headlen * Math.cos(angle + Math.PI / 6),
+				endY - headlen * Math.sin(angle + Math.PI / 6)
+			);
+			context.lineWidth = 3.0;
 			context.stroke();
 		});
 
