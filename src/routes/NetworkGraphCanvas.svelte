@@ -67,7 +67,7 @@
 			.on('tick', simulationUpdate);
 
 		// title
-		d3.select(context.canvas).on('mousemove', (event) => {
+		d3.select(context.canvas).on('click', (event) => {
 			const d = simulation.find(
 				transform.invertX(event.offsetX * dpi),
 				transform.invertY(event.offsetY * dpi),
@@ -76,23 +76,6 @@
 
 			if (d) activeNode = d;
 			else activeNode = false;
-		});
-
-		d3.select(context.canvas).on('click', () => {
-			if (activeNode) {
-				const parentLink = links.find((l) => l.target.id === activeNode.id);
-				if (parentLink && parentLink.source) {
-					const parentNode = parentLink.source;
-					const newTransform = d3.zoomIdentity
-						.translate(width / 2, height / 2)
-						.scale(transform.k > 2 ? transform.k : 2)
-						.translate(-parentNode.x, -parentNode.y);
-
-					d3.select(canvas).transition().duration(750).call(zoom.transform, newTransform);
-				} else {
-					showCard = JSON.parse(JSON.stringify({ id: activeNode.id, details: activeNode.details }));
-				}
-			}
 		});
 
 		d3.select(canvas)
@@ -142,7 +125,8 @@
 			const endX = d.target.x - targetRadius * Math.cos(angle);
 			const endY = d.target.y - targetRadius * Math.sin(angle);
 
-			const isConnected = activeNode && (d.source.id === activeNode.id || d.target.id === activeNode.id);
+			const isConnected =
+				activeNode && (d.source.id === activeNode.id || d.target.id === activeNode.id);
 			const isUnselected = activeNode && !isConnected;
 
 			context.beginPath();
