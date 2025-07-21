@@ -119,6 +119,19 @@
 		context.translate(transform.x, transform.y);
 		context.scale(transform.k, transform.k);
 
+		const sourceNodeIds = new Set();
+		const targetNodeIds = new Set();
+		if (activeNode) {
+			links.forEach((link) => {
+				if (link.source.id === activeNode.id) {
+					targetNodeIds.add(link.target.id);
+				}
+				if (link.target.id === activeNode.id) {
+					sourceNodeIds.add(link.source.id);
+				}
+			});
+		}
+
 		links.forEach((d) => {
 			const sourceRadius = 40 + Math.sqrt(d.source.size) / 5;
 			const targetRadius = 40 + Math.sqrt(d.target.size) / 5;
@@ -129,11 +142,14 @@
 			const endX = d.target.x - targetRadius * Math.cos(angle);
 			const endY = d.target.y - targetRadius * Math.sin(angle);
 
+			const isConnected = activeNode && (d.source.id === activeNode.id || d.target.id === activeNode.id);
+			const isUnselected = activeNode && !isConnected;
+
 			context.beginPath();
 			context.moveTo(startX, startY);
 			context.lineTo(endX, endY);
-			context.strokeStyle = '#000';
-			context.lineWidth = 1.5;
+			context.strokeStyle = isUnselected ? 'rgba(0,0,0,0.1)' : '#000';
+			context.lineWidth = isUnselected ? 1 : 1.5;
 			context.stroke();
 
 			// arrowhead
@@ -149,7 +165,8 @@
 				endX - headlen * Math.cos(angle + Math.PI / 6),
 				endY - headlen * Math.sin(angle + Math.PI / 6)
 			);
-			context.lineWidth = 3.0;
+			context.lineWidth = isUnselected ? 1 : 3.0;
+			context.strokeStyle = isUnselected ? 'rgba(0,0,0,0.1)' : '#000';
 			context.stroke();
 		});
 
@@ -158,7 +175,19 @@
 			context.arc(d.x, d.y, 40 + Math.sqrt(d.size) / 5, 0, 2 * Math.PI);
 			context.strokeStyle = '#000';
 			context.lineWidth = 1.5;
-			context.fillStyle = '#fff';
+			if (activeNode) {
+				if (d.id === activeNode.id) {
+					context.fillStyle = 'orange';
+				} else if (sourceNodeIds.has(d.id)) {
+					context.fillStyle = 'lightgreen';
+				} else if (targetNodeIds.has(d.id)) {
+					context.fillStyle = 'lightblue';
+				} else {
+					context.fillStyle = 'rgba(255,255,255,0.5)';
+				}
+			} else {
+				context.fillStyle = '#fff';
+			}
 			context.fill();
 			context.stroke();
 			// if (d.size > max / 50) {
