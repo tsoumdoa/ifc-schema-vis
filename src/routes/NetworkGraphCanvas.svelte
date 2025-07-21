@@ -9,24 +9,6 @@
 	let height = 600;
 	let max = 100;
 	let activeNode = false;
-	// const nodeRadius = 5;
-	// const padding = { top: 20, right: 40, bottom: 40, left: 25 };
-
-	// $: xScale = d3
-	// 	.scaleLinear()
-	// 	.domain([0, 20])
-	// 	.range([padding.left, width - padding.right]);
-	//
-	// $: yScale = d3
-	// 	.scaleLinear()
-	// 	.domain([0, 12])
-	// 	.range([height - padding.bottom, padding.top]);
-
-	// $: xTicks = width > 180 ? [0, 4, 8, 12, 16, 20] : [0, 10, 20];
-	//
-	// $: yTicks = height > 180 ? [0, 2, 4, 6, 8, 10, 12] : [0, 4, 8, 12];
-	//
-	// $: d3yScale = d3.scaleLinear().domain([0, height]).range([height, 0]);
 
 	$: links = graph.links.map((d) => Object.create(d));
 	$: nodes = graph.nodes.map((d) => {

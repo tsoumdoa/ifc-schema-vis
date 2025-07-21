@@ -54,11 +54,6 @@ export default {
       }
     },
     {
-      "id": "IfcRoleEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcActuatorType",
       "group": 1,
       "details": {
@@ -68,11 +63,6 @@ export default {
     {
       "id": "IfcDistributionControlElementType",
       "group": 1,
-      "details": {}
-    },
-    {
-      "id": "IfcActuatorTypeEnum",
-      "group": 2,
       "details": {}
     },
     {
@@ -95,11 +85,6 @@ export default {
       "details": {}
     },
     {
-      "id": "IfcAirTerminalBoxTypeEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcAirTerminalType",
       "group": 1,
       "details": {
@@ -109,11 +94,6 @@ export default {
     {
       "id": "IfcFlowTerminalType",
       "group": 1,
-      "details": {}
-    },
-    {
-      "id": "IfcAirTerminalTypeEnum",
-      "group": 2,
       "details": {}
     },
     {
@@ -129,21 +109,11 @@ export default {
       "details": {}
     },
     {
-      "id": "IfcAirToAirHeatRecoveryTypeEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcAlarmType",
       "group": 1,
       "details": {
         "definition": " IfcAlarmType\n SUBTYPE OF (IfcDistributionControlElementType);\n\tPredefinedType : IfcAlarmTypeEnum;\n"
       }
-    },
-    {
-      "id": "IfcAlarmTypeEnum",
-      "group": 2,
-      "details": {}
     },
     {
       "id": "IfcAngularDimension",
@@ -268,11 +238,6 @@ export default {
       "details": {
         "definition": " IfcAppliedValueRelationship;\n\tComponentOfTotal : IfcAppliedValue;\n\tComponents : SET [1:?] OF IfcAppliedValue;\n\tArithmeticOperator : IfcArithmeticOperatorEnum;\n\tName : OPTIONAL IfcLabel;\n\tDescription : OPTIONAL IfcText;\n"
       }
-    },
-    {
-      "id": "IfcArithmeticOperatorEnum",
-      "group": 2,
-      "details": {}
     },
     {
       "id": "IfcApproval",
@@ -445,11 +410,6 @@ export default {
       "details": {}
     },
     {
-      "id": "IfcBeamTypeEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcBezierCurve",
       "group": 1,
       "details": {
@@ -486,11 +446,6 @@ export default {
       "details": {
         "definition": " IfcBoilerType\n SUBTYPE OF (IfcEnergyConversionDeviceType);\n\tPredefinedType : IfcBoilerTypeEnum;\n WHERE\n\tWR1 : (PredefinedType <> IfcBoilerTypeEnum.USERDEFINED) OR\n            ((PredefinedType = IfcBoilerTypeEnum.USERDEFINED) AND EXISTS(SELF\\IfcElementType.ElementType));\n"
       }
-    },
-    {
-      "id": "IfcBoilerTypeEnum",
-      "group": 2,
-      "details": {}
     },
     {
       "id": "IfcBooleanClippingResult",
@@ -631,11 +586,6 @@ export default {
       }
     },
     {
-      "id": "IfcBuildingElementProxyTypeEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcElementType",
       "group": 1,
       "details": {}
@@ -672,11 +622,6 @@ export default {
       "details": {}
     },
     {
-      "id": "IfcCableCarrierFittingTypeEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcCableCarrierSegmentType",
       "group": 1,
       "details": {
@@ -689,21 +634,11 @@ export default {
       "details": {}
     },
     {
-      "id": "IfcCableCarrierSegmentTypeEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcCableSegmentType",
       "group": 1,
       "details": {
         "definition": " IfcCableSegmentType\n SUBTYPE OF (IfcFlowSegmentType);\n\tPredefinedType : IfcCableSegmentTypeEnum;\n"
       }
-    },
-    {
-      "id": "IfcCableSegmentTypeEnum",
-      "group": 2,
-      "details": {}
     },
     {
       "id": "IfcDayInMonthNumber",
@@ -785,11 +720,6 @@ export default {
       "details": {
         "definition": " IfcChillerType\n SUBTYPE OF (IfcEnergyConversionDeviceType);\n\tPredefinedType : IfcChillerTypeEnum;\n WHERE\n\tWR1 : (PredefinedType <> IfcChillerTypeEnum.USERDEFINED) OR\n            ((PredefinedType = IfcChillerTypeEnum.USERDEFINED) AND EXISTS(SELF\\IfcElementType.ElementType));\n"
       }
-    },
-    {
-      "id": "IfcChillerTypeEnum",
-      "group": 2,
-      "details": {}
     },
     {
       "id": "IfcCircle",
@@ -880,11 +810,6 @@ export default {
       }
     },
     {
-      "id": "IfcCoilTypeEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcColourRgb",
       "group": 1,
       "details": {
@@ -914,11 +839,6 @@ export default {
       "details": {
         "definition": " IfcColumnType\n SUBTYPE OF (IfcBuildingElementType);\n\tPredefinedType : IfcColumnTypeEnum;\n"
       }
-    },
-    {
-      "id": "IfcColumnTypeEnum",
-      "group": 2,
-      "details": {}
     },
     {
       "id": "IfcComplexProperty",
@@ -964,21 +884,11 @@ export default {
       "details": {}
     },
     {
-      "id": "IfcCompressorTypeEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcCondenserType",
       "group": 1,
       "details": {
         "definition": " IfcCondenserType\n SUBTYPE OF (IfcEnergyConversionDeviceType);\n\tPredefinedType : IfcCondenserTypeEnum;\n WHERE\n\tWR1 : (PredefinedType <> IfcCondenserTypeEnum.USERDEFINED) OR\n            ((PredefinedType = IfcCondenserTypeEnum.USERDEFINED) AND EXISTS(SELF\\IfcElementType.ElementType));\n"
       }
-    },
-    {
-      "id": "IfcCondenserTypeEnum",
-      "group": 2,
-      "details": {}
     },
     {
       "id": "IfcCondition",
@@ -1070,21 +980,11 @@ export default {
       }
     },
     {
-      "id": "IfcConstraintEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcConstraintAggregationRelationship",
       "group": 1,
       "details": {
         "definition": " IfcConstraintAggregationRelationship;\n\tName : OPTIONAL IfcLabel;\n\tDescription : OPTIONAL IfcText;\n\tRelatingConstraint : IfcConstraint;\n\tRelatedConstraints : LIST [1:?] OF UNIQUE IfcConstraint;\n\tLogicalAggregator : IfcLogicalOperatorEnum;\n WHERE\n\tWR11 : SIZEOF(QUERY(temp <* RelatedConstraints | \n               temp :=: RelatingConstraint\n               )) = 0;\n"
       }
-    },
-    {
-      "id": "IfcLogicalOperatorEnum",
-      "group": 2,
-      "details": {}
     },
     {
       "id": "IfcConstraintClassificationRelationship",
@@ -1151,11 +1051,6 @@ export default {
       }
     },
     {
-      "id": "IfcControllerTypeEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcConversionBasedUnit",
       "group": 1,
       "details": {
@@ -1175,21 +1070,11 @@ export default {
       }
     },
     {
-      "id": "IfcCooledBeamTypeEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcCoolingTowerType",
       "group": 1,
       "details": {
         "definition": " IfcCoolingTowerType\n SUBTYPE OF (IfcEnergyConversionDeviceType);\n\tPredefinedType : IfcCoolingTowerTypeEnum;\n WHERE\n\tWR1 : (PredefinedType <> IfcCoolingTowerTypeEnum.USERDEFINED) OR\n            ((PredefinedType = IfcCoolingTowerTypeEnum.USERDEFINED) AND EXISTS(SELF\\IfcElementType.ElementType));\n"
       }
-    },
-    {
-      "id": "IfcCoolingTowerTypeEnum",
-      "group": 2,
-      "details": {}
     },
     {
       "id": "IfcCoordinatedUniversalTimeOffset",
@@ -1223,11 +1108,6 @@ export default {
       }
     },
     {
-      "id": "IfcCostScheduleTypeEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcCovering",
       "group": 1,
       "details": {
@@ -1240,11 +1120,6 @@ export default {
       "details": {
         "definition": " IfcCoveringType\n SUBTYPE OF (IfcBuildingElementType);\n\tPredefinedType : IfcCoveringTypeEnum;\n"
       }
-    },
-    {
-      "id": "IfcCoveringTypeEnum",
-      "group": 2,
-      "details": {}
     },
     {
       "id": "IfcCraneRailAShapeProfileDef",
@@ -1321,11 +1196,6 @@ export default {
       }
     },
     {
-      "id": "IfcCurtainWallTypeEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcCurveBoundedPlane",
       "group": 1,
       "details": {
@@ -1388,11 +1258,6 @@ export default {
       }
     },
     {
-      "id": "IfcDamperTypeEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcLocalTime",
       "group": 2,
       "details": {}
@@ -1422,11 +1287,6 @@ export default {
       "details": {
         "definition": " IfcDerivedUnit;\n\tElements : SET [1:?] OF IfcDerivedUnitElement;\n\tUnitType : IfcDerivedUnitEnum;\n\tUserDefinedType : OPTIONAL IfcLabel;\n DERIVE\n\tDimensions : IfcDimensionalExponents := IfcDeriveDimensionalExponents(SELF);\n WHERE\n\tWR1 : (SIZEOF (Elements) > 1) OR ((SIZEOF (Elements) = 1) AND (Elements[1].Exponent <> 1 ));\n\tWR2 : (UnitType <> IfcDerivedUnitEnum.USERDEFINED) OR\n            ((UnitType = IfcDerivedUnitEnum.USERDEFINED) AND \n             (EXISTS(SELF.UserDefinedType)));\n"
       }
-    },
-    {
-      "id": "IfcDerivedUnitEnum",
-      "group": 2,
-      "details": {}
     },
     {
       "id": "IfcDerivedUnitElement",
@@ -1553,11 +1413,6 @@ export default {
       "details": {}
     },
     {
-      "id": "IfcDistributionChamberElementTypeEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcDistributionControlElement",
       "group": 1,
       "details": {
@@ -1641,16 +1496,6 @@ export default {
       }
     },
     {
-      "id": "IfcDoorPanelOperationEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
-      "id": "IfcDoorPanelPositionEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcDoorStyle",
       "group": 1,
       "details": {
@@ -1660,16 +1505,6 @@ export default {
     {
       "id": "IfcTypeProduct",
       "group": 1,
-      "details": {}
-    },
-    {
-      "id": "IfcDoorStyleOperationEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
-      "id": "IfcDoorStyleConstructionEnum",
-      "group": 2,
       "details": {}
     },
     {
@@ -1716,21 +1551,11 @@ export default {
       }
     },
     {
-      "id": "IfcDuctFittingTypeEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcDuctSegmentType",
       "group": 1,
       "details": {
         "definition": " IfcDuctSegmentType\n SUBTYPE OF (IfcFlowSegmentType);\n\tPredefinedType : IfcDuctSegmentTypeEnum;\n WHERE\n\tWR1 : (PredefinedType <> IfcDuctSegmentTypeEnum.USERDEFINED) OR\n            ((PredefinedType = IfcDuctSegmentTypeEnum.USERDEFINED) AND EXISTS(SELF\\IfcElementType.ElementType));\n"
       }
-    },
-    {
-      "id": "IfcDuctSegmentTypeEnum",
-      "group": 2,
-      "details": {}
     },
     {
       "id": "IfcDuctSilencerType",
@@ -1742,11 +1567,6 @@ export default {
     {
       "id": "IfcFlowTreatmentDeviceType",
       "group": 1,
-      "details": {}
-    },
-    {
-      "id": "IfcDuctSilencerTypeEnum",
-      "group": 2,
       "details": {}
     },
     {
@@ -1793,11 +1613,6 @@ export default {
       }
     },
     {
-      "id": "IfcElectricApplianceTypeEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcElectricDistributionPoint",
       "group": 1,
       "details": {
@@ -1807,11 +1622,6 @@ export default {
     {
       "id": "IfcFlowController",
       "group": 1,
-      "details": {}
-    },
-    {
-      "id": "IfcElectricDistributionPointFunctionEnum",
-      "group": 2,
       "details": {}
     },
     {
@@ -1827,21 +1637,11 @@ export default {
       "details": {}
     },
     {
-      "id": "IfcElectricFlowStorageDeviceTypeEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcElectricGeneratorType",
       "group": 1,
       "details": {
         "definition": " IfcElectricGeneratorType\n SUBTYPE OF (IfcEnergyConversionDeviceType);\n\tPredefinedType : IfcElectricGeneratorTypeEnum;\n"
       }
-    },
-    {
-      "id": "IfcElectricGeneratorTypeEnum",
-      "group": 2,
-      "details": {}
     },
     {
       "id": "IfcElectricHeaterType",
@@ -1851,11 +1651,6 @@ export default {
       }
     },
     {
-      "id": "IfcElectricHeaterTypeEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcElectricMotorType",
       "group": 1,
       "details": {
@@ -1863,21 +1658,11 @@ export default {
       }
     },
     {
-      "id": "IfcElectricMotorTypeEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcElectricTimeControlType",
       "group": 1,
       "details": {
         "definition": " IfcElectricTimeControlType\n SUBTYPE OF (IfcFlowControllerType);\n\tPredefinedType : IfcElectricTimeControlTypeEnum;\n"
       }
-    },
-    {
-      "id": "IfcElectricTimeControlTypeEnum",
-      "group": 2,
-      "details": {}
     },
     {
       "id": "IfcElectricalBaseProperties",
@@ -1928,11 +1713,6 @@ export default {
       }
     },
     {
-      "id": "IfcElementAssemblyTypeEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcElementQuantity",
       "group": 1,
       "details": {
@@ -1975,11 +1755,6 @@ export default {
       }
     },
     {
-      "id": "IfcEnvironmentalImpactCategoryEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcEquipmentElement",
       "group": 1,
       "details": {
@@ -2001,21 +1776,11 @@ export default {
       }
     },
     {
-      "id": "IfcEvaporativeCoolerTypeEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcEvaporatorType",
       "group": 1,
       "details": {
         "definition": " IfcEvaporatorType\n SUBTYPE OF (IfcEnergyConversionDeviceType);\n\tPredefinedType : IfcEvaporatorTypeEnum;\n WHERE\n\tWR1 : (PredefinedType <> IfcEvaporatorTypeEnum.USERDEFINED) OR\n            ((PredefinedType = IfcEvaporatorTypeEnum.USERDEFINED) AND EXISTS(SELF\\IfcElementType.ElementType));\n"
       }
-    },
-    {
-      "id": "IfcEvaporatorTypeEnum",
-      "group": 2,
-      "details": {}
     },
     {
       "id": "IfcExtendedMaterialProperties",
@@ -2143,11 +1908,6 @@ export default {
       }
     },
     {
-      "id": "IfcFanTypeEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcFastener",
       "group": 1,
       "details": {
@@ -2226,21 +1986,11 @@ export default {
       }
     },
     {
-      "id": "IfcFilterTypeEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcFireSuppressionTerminalType",
       "group": 1,
       "details": {
         "definition": " IfcFireSuppressionTerminalType\n SUBTYPE OF (IfcFlowTerminalType);\n\tPredefinedType : IfcFireSuppressionTerminalTypeEnum;\n"
       }
-    },
-    {
-      "id": "IfcFireSuppressionTerminalTypeEnum",
-      "group": 2,
-      "details": {}
     },
     {
       "id": "IfcFlowFitting",
@@ -2257,21 +2007,11 @@ export default {
       }
     },
     {
-      "id": "IfcFlowInstrumentTypeEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcFlowMeterType",
       "group": 1,
       "details": {
         "definition": " IfcFlowMeterType\n SUBTYPE OF (IfcFlowControllerType);\n\tPredefinedType : IfcFlowMeterTypeEnum;\n WHERE\n\tWR1 : (PredefinedType <> IfcFlowMeterTypeEnum.USERDEFINED) OR\n            ((PredefinedType = IfcFlowMeterTypeEnum.USERDEFINED) AND EXISTS(SELF\\IfcElementType.ElementType));\n"
       }
-    },
-    {
-      "id": "IfcFlowMeterTypeEnum",
-      "group": 2,
-      "details": {}
     },
     {
       "id": "IfcFlowMovingDevice",
@@ -2316,11 +2056,6 @@ export default {
       }
     },
     {
-      "id": "IfcPropertySourceEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcMaterial",
       "group": 2,
       "details": {}
@@ -2331,11 +2066,6 @@ export default {
       "details": {
         "definition": " IfcFooting\n SUBTYPE OF (IfcBuildingElement);\n\tPredefinedType : IfcFootingTypeEnum;\n WHERE\n\tWR1 : (PredefinedType <> IfcFootingTypeEnum.USERDEFINED) OR ((PredefinedType = IfcFootingTypeEnum.USERDEFINED) AND EXISTS(SELF\\IfcObject.ObjectType));\n"
       }
-    },
-    {
-      "id": "IfcFootingTypeEnum",
-      "group": 2,
-      "details": {}
     },
     {
       "id": "IfcFuelProperties",
@@ -2373,21 +2103,11 @@ export default {
       }
     },
     {
-      "id": "IfcAssemblyPlaceEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcGasTerminalType",
       "group": 1,
       "details": {
         "definition": " IfcGasTerminalType\n SUBTYPE OF (IfcFlowTerminalType);\n\tPredefinedType : IfcGasTerminalTypeEnum;\n WHERE\n\tWR1 : (PredefinedType <> IfcGasTerminalTypeEnum.USERDEFINED) OR\n            ((PredefinedType = IfcGasTerminalTypeEnum.USERDEFINED) AND EXISTS(SELF\\IfcElementType.ElementType));\n"
       }
-    },
-    {
-      "id": "IfcGasTerminalTypeEnum",
-      "group": 2,
-      "details": {}
     },
     {
       "id": "IfcGeneralMaterialProperties",
@@ -2450,11 +2170,6 @@ export default {
       }
     },
     {
-      "id": "IfcGeometricProjectionEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcGrid",
       "group": 1,
       "details": {
@@ -2498,21 +2213,11 @@ export default {
       }
     },
     {
-      "id": "IfcHeatExchangerTypeEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcHumidifierType",
       "group": 1,
       "details": {
         "definition": " IfcHumidifierType\n SUBTYPE OF (IfcEnergyConversionDeviceType);\n\tPredefinedType : IfcHumidifierTypeEnum;\n WHERE\n\tWR1 : (PredefinedType <> IfcHumidifierTypeEnum.USERDEFINED) OR\n            ((PredefinedType = IfcHumidifierTypeEnum.USERDEFINED) AND EXISTS(SELF\\IfcElementType.ElementType));\n"
       }
-    },
-    {
-      "id": "IfcHumidifierTypeEnum",
-      "group": 2,
-      "details": {}
     },
     {
       "id": "IfcHygroscopicMaterialProperties",
@@ -2534,11 +2239,6 @@ export default {
       "details": {
         "definition": " IfcInventory\n SUBTYPE OF (IfcGroup);\n\tInventoryType : IfcInventoryTypeEnum;\n\tJurisdiction : IfcActorSelect;\n\tResponsiblePersons : SET [1:?] OF IfcPerson;\n\tLastUpdateDate : IfcCalendarDate;\n\tCurrentValue : OPTIONAL IfcCostValue;\n\tOriginalValue : OPTIONAL IfcCostValue;\n WHERE\n\tWR41 : SIZEOF(QUERY(temp <* SELF\\IfcGroup.IsGroupedBy.RelatedObjects |\n                 NOT( ('IFC2X3.IFCSPACE' IN TYPEOF (temp)) OR \n                      ('IFC2X3.IFCASSET' IN TYPEOF (temp)) OR\n                      ('IFC2X3.IFCFURNISHINGELEMENT' IN TYPEOF (temp))\n                 ))) = 0;\n"
       }
-    },
-    {
-      "id": "IfcInventoryTypeEnum",
-      "group": 2,
-      "details": {}
     },
     {
       "id": "IfcIrregularTimeSeries",
@@ -2567,11 +2267,6 @@ export default {
       }
     },
     {
-      "id": "IfcJunctionBoxTypeEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcLShapeProfileDef",
       "group": 1,
       "details": {
@@ -2591,11 +2286,6 @@ export default {
       "details": {
         "definition": " IfcLampType\n SUBTYPE OF (IfcFlowTerminalType);\n\tPredefinedType : IfcLampTypeEnum;\n"
       }
-    },
-    {
-      "id": "IfcLampTypeEnum",
-      "group": 2,
-      "details": {}
     },
     {
       "id": "IfcLibraryInformation",
@@ -2626,21 +2316,11 @@ export default {
       }
     },
     {
-      "id": "IfcLightFixtureTypeEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcLightIntensityDistribution",
       "group": 1,
       "details": {
         "definition": " IfcLightIntensityDistribution;\n\tLightDistributionCurve : IfcLightDistributionCurveEnum;\n\tDistributionData : LIST [1:?] OF IfcLightDistributionData;\n"
       }
-    },
-    {
-      "id": "IfcLightDistributionCurveEnum",
-      "group": 2,
-      "details": {}
     },
     {
       "id": "IfcLightSource",
@@ -2677,11 +2357,6 @@ export default {
     },
     {
       "id": "IfcLuminousFluxMeasure",
-      "group": 2,
-      "details": {}
-    },
-    {
-      "id": "IfcLightEmissionSourceEnum",
       "group": 2,
       "details": {}
     },
@@ -2793,16 +2468,6 @@ export default {
       }
     },
     {
-      "id": "IfcLayerSetDirectionEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
-      "id": "IfcDirectionSenseEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcMaterialList",
       "group": 1,
       "details": {
@@ -2867,11 +2532,6 @@ export default {
       }
     },
     {
-      "id": "IfcMemberTypeEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcMetric",
       "group": 1,
       "details": {
@@ -2879,17 +2539,7 @@ export default {
       }
     },
     {
-      "id": "IfcBenchmarkEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcMetricValueSelect",
-      "group": 2,
-      "details": {}
-    },
-    {
-      "id": "IfcCurrencyEnum",
       "group": 2,
       "details": {}
     },
@@ -2901,11 +2551,6 @@ export default {
       }
     },
     {
-      "id": "IfcMotorConnectionTypeEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcMove",
       "group": 1,
       "details": {
@@ -2915,11 +2560,6 @@ export default {
     {
       "id": "IfcTask",
       "group": 1,
-      "details": {}
-    },
-    {
-      "id": "IfcUnitEnum",
-      "group": 2,
       "details": {}
     },
     {
@@ -2940,21 +2580,11 @@ export default {
       }
     },
     {
-      "id": "IfcObjectiveEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcOccupant",
       "group": 1,
       "details": {
         "definition": " IfcOccupant\n SUBTYPE OF (IfcActor);\n\tPredefinedType : IfcOccupantTypeEnum;\n WHERE\n\tWR31 : NOT(PredefinedType = IfcOccupantTypeEnum.USERDEFINED) \n             OR EXISTS(SELF\\IfcObject.ObjectType);\n"
       }
-    },
-    {
-      "id": "IfcOccupantTypeEnum",
-      "group": 2,
-      "details": {}
     },
     {
       "id": "IfcOffsetCurve2D",
@@ -3020,11 +2650,6 @@ export default {
       }
     },
     {
-      "id": "IfcOutletTypeEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcOwnerHistory",
       "group": 1,
       "details": {
@@ -3033,11 +2658,6 @@ export default {
     },
     {
       "id": "IfcPersonAndOrganization",
-      "group": 2,
-      "details": {}
-    },
-    {
-      "id": "IfcChangeActionEnum",
       "group": 2,
       "details": {}
     },
@@ -3066,16 +2686,6 @@ export default {
       "details": {
         "definition": " IfcPermeableCoveringProperties\n SUBTYPE OF (IfcPropertySetDefinition);\n\tOperationType : IfcPermeableCoveringOperationEnum;\n\tPanelPosition : IfcWindowPanelPositionEnum;\n\tFrameDepth : OPTIONAL IfcPositiveLengthMeasure;\n\tFrameThickness : OPTIONAL IfcPositiveLengthMeasure;\n\tShapeAspectStyle : OPTIONAL IfcShapeAspect;\n"
       }
-    },
-    {
-      "id": "IfcPermeableCoveringOperationEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
-      "id": "IfcWindowPanelPositionEnum",
-      "group": 2,
-      "details": {}
     },
     {
       "id": "IfcPermit",
@@ -3111,11 +2721,6 @@ export default {
       }
     },
     {
-      "id": "IfcPileTypeEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcPipeFittingType",
       "group": 1,
       "details": {
@@ -3123,21 +2728,11 @@ export default {
       }
     },
     {
-      "id": "IfcPipeFittingTypeEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcPipeSegmentType",
       "group": 1,
       "details": {
         "definition": " IfcPipeSegmentType\n SUBTYPE OF (IfcFlowSegmentType);\n\tPredefinedType : IfcPipeSegmentTypeEnum;\n WHERE\n\tWR1 : (PredefinedType <> IfcPipeSegmentTypeEnum.USERDEFINED) OR\n            ((PredefinedType = IfcPipeSegmentTypeEnum.USERDEFINED) AND EXISTS(SELF\\IfcElementType.ElementType));\n"
       }
-    },
-    {
-      "id": "IfcPipeSegmentTypeEnum",
-      "group": 2,
-      "details": {}
     },
     {
       "id": "IfcPixelTexture",
@@ -3176,11 +2771,6 @@ export default {
       "details": {
         "definition": " IfcPlateType\n SUBTYPE OF (IfcBuildingElementType);\n\tPredefinedType : IfcPlateTypeEnum;\n WHERE\n\tWR1 : SIZEOF (QUERY(temp <* SELF\\IfcObjectDefinition.HasAssociations | 'IFC2X3.IFCRELASSOCIATESMATERIAL' IN TYPEOF(temp) )) = 1;\n"
       }
-    },
-    {
-      "id": "IfcPlateTypeEnum",
-      "group": 2,
-      "details": {}
     },
     {
       "id": "IfcPointOnCurve",
@@ -3294,11 +2884,6 @@ export default {
       "details": {}
     },
     {
-      "id": "IfcProcedureTypeEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcProductDefinitionShape",
       "group": 1,
       "details": {
@@ -3311,11 +2896,6 @@ export default {
       "details": {
         "definition": " IfcProductsOfCombustionProperties\n SUBTYPE OF (IfcMaterialProperties);\n\tSpecificHeatCapacity : OPTIONAL IfcSpecificHeatCapacityMeasure;\n\tN20Content : OPTIONAL IfcPositiveRatioMeasure;\n\tCOContent : OPTIONAL IfcPositiveRatioMeasure;\n\tCO2Content : OPTIONAL IfcPositiveRatioMeasure;\n UNIQUE\n\tUR11 : Material;\n"
       }
-    },
-    {
-      "id": "IfcProfileTypeEnum",
-      "group": 2,
-      "details": {}
     },
     {
       "id": "IfcProject",
@@ -3337,21 +2917,11 @@ export default {
       }
     },
     {
-      "id": "IfcProjectOrderTypeEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcProjectOrderRecord",
       "group": 1,
       "details": {
         "definition": " IfcProjectOrderRecord\n SUBTYPE OF (IfcControl);\n\tRecords : LIST [1:?] OF UNIQUE IfcRelAssignsToProjectOrder;\n\tPredefinedType : IfcProjectOrderRecordTypeEnum;\n"
       }
-    },
-    {
-      "id": "IfcProjectOrderRecordTypeEnum",
-      "group": 2,
-      "details": {}
     },
     {
       "id": "IfcProjectionCurve",
@@ -3398,20 +2968,6 @@ export default {
       "group": 1,
       "details": {
         "definition": " IfcPropertyDependencyRelationship;\n\tDependingProperty : IfcProperty;\n\tDependantProperty : IfcProperty;\n\tName : OPTIONAL IfcLabel;\n\tDescription : OPTIONAL IfcText;\n\tExpression : OPTIONAL IfcText;\n WHERE\n\tWR1 : DependingProperty :<>: DependantProperty;\n"
-      }
-    },
-    {
-      "id": "IfcPropertyEnumeratedValue",
-      "group": 1,
-      "details": {
-        "definition": " IfcPropertyEnumeratedValue\n SUBTYPE OF (IfcSimpleProperty);\n\tEnumerationValues : LIST [1:?] OF IfcValue;\n\tEnumerationReference : OPTIONAL IfcPropertyEnumeration;\n WHERE\n\tWR1 : NOT(EXISTS(EnumerationReference)) OR \n               (SIZEOF(QUERY(temp <* EnumerationValues |\n                temp IN EnumerationReference.EnumerationValues))\n                = SIZEOF(EnumerationValues));\n"
-      }
-    },
-    {
-      "id": "IfcPropertyEnumeration",
-      "group": 1,
-      "details": {
-        "definition": " IfcPropertyEnumeration;\n\tName : IfcLabel;\n\tEnumerationValues : LIST [1:?] OF UNIQUE IfcValue;\n\tUnit : OPTIONAL IfcUnit;\n UNIQUE\n\tUR1 : Name;\n WHERE\n\tWR01 : SIZEOF(QUERY(temp <* SELF.EnumerationValues | \n               NOT(TYPEOF(SELF.EnumerationValues[1]) = TYPEOF(temp))\n               )) = 0;\n"
       }
     },
     {
@@ -3462,11 +3018,6 @@ export default {
       }
     },
     {
-      "id": "IfcProtectiveDeviceTypeEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcProxy",
       "group": 1,
       "details": {
@@ -3474,21 +3025,11 @@ export default {
       }
     },
     {
-      "id": "IfcObjectTypeEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcPumpType",
       "group": 1,
       "details": {
         "definition": " IfcPumpType\n SUBTYPE OF (IfcFlowMovingDeviceType);\n\tPredefinedType : IfcPumpTypeEnum;\n WHERE\n\tWR1 : (PredefinedType <> IfcPumpTypeEnum.USERDEFINED) OR\n            ((PredefinedType = IfcPumpTypeEnum.USERDEFINED) AND EXISTS(SELF\\IfcElementType.ElementType));\n"
       }
-    },
-    {
-      "id": "IfcPumpTypeEnum",
-      "group": 2,
-      "details": {}
     },
     {
       "id": "IfcQuantityArea",
@@ -3579,21 +3120,11 @@ export default {
       }
     },
     {
-      "id": "IfcRailingTypeEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcRamp",
       "group": 1,
       "details": {
         "definition": " IfcRamp\n SUBTYPE OF (IfcBuildingElement);\n\tShapeType : IfcRampTypeEnum;\n WHERE\n\tWR1 : (HIINDEX(SELF\\IfcObjectDefinition.IsDecomposedBy) = 0) OR \n            ((HIINDEX(SELF\\IfcObjectDefinition.IsDecomposedBy) = 1) AND (NOT(EXISTS(SELF\\IfcProduct.Representation))));\n"
       }
-    },
-    {
-      "id": "IfcRampTypeEnum",
-      "group": 2,
-      "details": {}
     },
     {
       "id": "IfcRampFlight",
@@ -3608,11 +3139,6 @@ export default {
       "details": {
         "definition": " IfcRampFlightType\n SUBTYPE OF (IfcBuildingElementType);\n\tPredefinedType : IfcRampFlightTypeEnum;\n"
       }
-    },
-    {
-      "id": "IfcRampFlightTypeEnum",
-      "group": 2,
-      "details": {}
     },
     {
       "id": "IfcRationalBezierCurve",
@@ -3690,11 +3216,6 @@ export default {
     {
       "id": "IfcReinforcingElement",
       "group": 1,
-      "details": {}
-    },
-    {
-      "id": "IfcReinforcingBarRoleEnum",
-      "group": 2,
       "details": {}
     },
     {
@@ -3880,11 +3401,6 @@ export default {
       "details": {
         "definition": " IfcRelConnectsPathElements\n SUBTYPE OF (IfcRelConnectsElements);\n\tRelatingPriorities : LIST [0:?] OF INTEGER;\n\tRelatedPriorities : LIST [0:?] OF INTEGER;\n\tRelatedConnectionType : IfcConnectionTypeEnum;\n\tRelatingConnectionType : IfcConnectionTypeEnum;\n DERIVE\n\tRelatedLayerCount : INTEGER := IfcNoOfLayers(SELF\\IfcRelConnectsElements.RelatedElement);\n\tRelatingLayerCount : INTEGER := IfcNoOfLayers(SELF\\IfcRelConnectsElements.RelatingElement);\n"
       }
-    },
-    {
-      "id": "IfcConnectionTypeEnum",
-      "group": 2,
-      "details": {}
     },
     {
       "id": "IfcRelConnectsPortToElement",
@@ -4083,11 +3599,6 @@ export default {
       }
     },
     {
-      "id": "IfcSequenceEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcRelServicesBuildings",
       "group": 1,
       "details": {
@@ -4100,16 +3611,6 @@ export default {
       "details": {
         "definition": " IfcRelSpaceBoundary\n SUBTYPE OF (IfcRelConnects);\n\tRelatingSpace : IfcSpace;\n\tRelatedBuildingElement : OPTIONAL IfcElement;\n\tConnectionGeometry : OPTIONAL IfcConnectionGeometry;\n\tPhysicalOrVirtualBoundary : IfcPhysicalOrVirtualEnum;\n\tInternalOrExternalBoundary : IfcInternalOrExternalEnum;\n WHERE\n\tWR1 : ((PhysicalOrVirtualBoundary = IfcPhysicalOrVirtualEnum.Physical) AND \n              (EXISTS(RelatedBuildingElement) AND NOT('IFC2X3.IFCVIRTUALELEMENT' IN TYPEOF(RelatedBuildingElement)))) \n            OR \n            ((PhysicalOrVirtualBoundary = IfcPhysicalOrVirtualEnum.Virtual) AND \n              (NOT(EXISTS(RelatedBuildingElement)) OR ('IFC2X3.IFCVIRTUALELEMENT' IN TYPEOF(RelatedBuildingElement)))) \n            OR \n             (PhysicalOrVirtualBoundary = IfcPhysicalOrVirtualEnum.NotDefined);\n"
       }
-    },
-    {
-      "id": "IfcPhysicalOrVirtualEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
-      "id": "IfcInternalOrExternalEnum",
-      "group": 2,
-      "details": {}
     },
     {
       "id": "IfcRelVoidsElement",
@@ -4147,11 +3648,6 @@ export default {
       }
     },
     {
-      "id": "IfcRibPlateDirectionEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcRightCircularCone",
       "group": 1,
       "details": {
@@ -4171,11 +3667,6 @@ export default {
       "details": {
         "definition": " IfcRoof\n SUBTYPE OF (IfcBuildingElement);\n\tShapeType : IfcRoofTypeEnum;\n WHERE\n\tWR1 : (HIINDEX(SELF\\IfcObjectDefinition.IsDecomposedBy) = 0) OR \n            ((HIINDEX(SELF\\IfcObjectDefinition.IsDecomposedBy) = 1) AND (NOT(EXISTS(SELF\\IfcProduct.Representation))));\n"
       }
-    },
-    {
-      "id": "IfcRoofTypeEnum",
-      "group": 2,
-      "details": {}
     },
     {
       "id": "IfcGloballyUniqueId",
@@ -4216,11 +3707,6 @@ export default {
       }
     },
     {
-      "id": "IfcSanitaryTerminalTypeEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcScheduleTimeControl",
       "group": 1,
       "details": {
@@ -4233,11 +3719,6 @@ export default {
       "details": {
         "definition": " IfcSectionProperties;\n\tSectionType : IfcSectionTypeEnum;\n\tStartProfile : IfcProfileDef;\n\tEndProfile : OPTIONAL IfcProfileDef;\n"
       }
-    },
-    {
-      "id": "IfcSectionTypeEnum",
-      "group": 2,
-      "details": {}
     },
     {
       "id": "IfcSectionReinforcementProperties",
@@ -4261,11 +3742,6 @@ export default {
       }
     },
     {
-      "id": "IfcSensorTypeEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcServiceLife",
       "group": 1,
       "details": {
@@ -4273,21 +3749,11 @@ export default {
       }
     },
     {
-      "id": "IfcServiceLifeTypeEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcServiceLifeFactor",
       "group": 1,
       "details": {
         "definition": " IfcServiceLifeFactor\n SUBTYPE OF (IfcPropertySetDefinition);\n\tPredefinedType : IfcServiceLifeFactorTypeEnum;\n\tUpperValue : OPTIONAL IfcMeasureValue;\n\tMostUsedValue : IfcMeasureValue;\n\tLowerValue : OPTIONAL IfcMeasureValue;\n WHERE\n\tWR31 : NOT(PredefinedType = IfcServiceLifeFactorTypeEnum.USERDEFINED)\n             OR EXISTS(SELF\\IfcObject.ObjectType);\n"
       }
-    },
-    {
-      "id": "IfcServiceLifeFactorTypeEnum",
-      "group": 2,
-      "details": {}
     },
     {
       "id": "IfcMeasureValue",
@@ -4344,11 +3810,6 @@ export default {
       }
     },
     {
-      "id": "IfcSlabTypeEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcSlippageConnectionCondition",
       "group": 1,
       "details": {
@@ -4377,11 +3838,6 @@ export default {
       }
     },
     {
-      "id": "IfcSpaceHeaterTypeEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcSpaceThermalLoadProperties",
       "group": 1,
       "details": {
@@ -4389,17 +3845,7 @@ export default {
       }
     },
     {
-      "id": "IfcThermalLoadSourceEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcPowerMeasure",
-      "group": 2,
-      "details": {}
-    },
-    {
-      "id": "IfcThermalLoadTypeEnum",
       "group": 2,
       "details": {}
     },
@@ -4413,16 +3859,6 @@ export default {
     {
       "id": "IfcSpatialStructureElementType",
       "group": 1,
-      "details": {}
-    },
-    {
-      "id": "IfcSpaceTypeEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
-      "id": "IfcElementCompositionEnum",
-      "group": 2,
       "details": {}
     },
     {
@@ -4440,21 +3876,11 @@ export default {
       }
     },
     {
-      "id": "IfcStackTerminalTypeEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcStair",
       "group": 1,
       "details": {
         "definition": " IfcStair\n SUBTYPE OF (IfcBuildingElement);\n\tShapeType : IfcStairTypeEnum;\n WHERE\n\tWR1 : (HIINDEX(SELF\\IfcObjectDefinition.IsDecomposedBy) = 0) OR \n            ((HIINDEX(SELF\\IfcObjectDefinition.IsDecomposedBy) = 1) AND (NOT(EXISTS(SELF\\IfcProduct.Representation))));\n"
       }
-    },
-    {
-      "id": "IfcStairTypeEnum",
-      "group": 2,
-      "details": {}
     },
     {
       "id": "IfcStairFlight",
@@ -4471,11 +3897,6 @@ export default {
       }
     },
     {
-      "id": "IfcStairFlightTypeEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcStructuralAction",
       "group": 1,
       "details": {
@@ -4488,21 +3909,11 @@ export default {
       "details": {}
     },
     {
-      "id": "IfcGlobalOrLocalEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcStructuralAnalysisModel",
       "group": 1,
       "details": {
         "definition": " IfcStructuralAnalysisModel\n SUBTYPE OF (IfcSystem);\n\tPredefinedType : IfcAnalysisModelTypeEnum;\n\tOrientationOf2DPlane : OPTIONAL IfcAxis2Placement3D;\n\tLoadedBy : OPTIONAL SET [1:?] OF IfcStructuralLoadGroup;\n\tHasResults : OPTIONAL SET [1:?] OF IfcStructuralResultGroup;\n"
       }
-    },
-    {
-      "id": "IfcAnalysisModelTypeEnum",
-      "group": 2,
-      "details": {}
     },
     {
       "id": "IfcStructuralItem",
@@ -4524,11 +3935,6 @@ export default {
       }
     },
     {
-      "id": "IfcStructuralCurveTypeEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcStructuralCurveMemberVarying",
       "group": 1,
       "details": {
@@ -4543,11 +3949,6 @@ export default {
       }
     },
     {
-      "id": "IfcProjectedOrTrueLengthEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcStructuralLinearActionVarying",
       "group": 1,
       "details": {
@@ -4560,21 +3961,6 @@ export default {
       "details": {
         "definition": " IfcStructuralLoadGroup\n SUBTYPE OF (IfcGroup);\n\tPredefinedType : IfcLoadGroupTypeEnum;\n\tActionType : IfcActionTypeEnum;\n\tActionSource : IfcActionSourceTypeEnum;\n\tCoefficient : OPTIONAL IfcPositiveRatioMeasure;\n\tPurpose : OPTIONAL IfcLabel;\n INVERSE\n\tSourceOfResultGroup : SET [0:1] OF IfcStructuralResultGroup FOR ResultForLoadGroup;\n\tLoadGroupFor : SET [0:?] OF IfcStructuralAnalysisModel FOR LoadedBy;\n"
       }
-    },
-    {
-      "id": "IfcLoadGroupTypeEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
-      "id": "IfcActionTypeEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
-      "id": "IfcActionSourceTypeEnum",
-      "group": 2,
-      "details": {}
     },
     {
       "id": "IfcStructuralLoadLinearForce",
@@ -4685,11 +4071,6 @@ export default {
       }
     },
     {
-      "id": "IfcAnalysisTheoryTypeEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcStructuralSteelProfileProperties",
       "group": 1,
       "details": {
@@ -4709,11 +4090,6 @@ export default {
       "details": {
         "definition": " IfcStructuralSurfaceMember\n SUPERTYPE OF (ONEOF\n\t(IfcStructuralSurfaceMemberVarying))\n SUBTYPE OF (IfcStructuralMember);\n\tPredefinedType : IfcStructuralSurfaceTypeEnum;\n\tThickness : OPTIONAL IfcPositiveLengthMeasure;\n"
       }
-    },
-    {
-      "id": "IfcStructuralSurfaceTypeEnum",
-      "group": 2,
-      "details": {}
     },
     {
       "id": "IfcStructuralSurfaceMemberVarying",
@@ -4822,21 +4198,11 @@ export default {
       "details": {}
     },
     {
-      "id": "IfcReflectanceMethodEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcSurfaceStyleWithTextures",
       "group": 1,
       "details": {
         "definition": " IfcSurfaceStyleWithTextures;\n\tTextures : LIST [1:?] OF IfcSurfaceTexture;\n"
       }
-    },
-    {
-      "id": "IfcSurfaceTextureEnum",
-      "group": 2,
-      "details": {}
     },
     {
       "id": "IfcSweptDiskSolid",
@@ -4851,11 +4217,6 @@ export default {
       "details": {
         "definition": " IfcSwitchingDeviceType\n SUBTYPE OF (IfcFlowControllerType);\n\tPredefinedType : IfcSwitchingDeviceTypeEnum;\n"
       }
-    },
-    {
-      "id": "IfcSwitchingDeviceTypeEnum",
-      "group": 2,
-      "details": {}
     },
     {
       "id": "IfcSymbolStyle",
@@ -4905,11 +4266,6 @@ export default {
       }
     },
     {
-      "id": "IfcTankTypeEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcTelecomAddress",
       "group": 1,
       "details": {
@@ -4922,11 +4278,6 @@ export default {
       "details": {
         "definition": " IfcTendon\n SUBTYPE OF (IfcReinforcingElement);\n\tPredefinedType : IfcTendonTypeEnum;\n\tNominalDiameter : IfcPositiveLengthMeasure;\n\tCrossSectionArea : IfcAreaMeasure;\n\tTensionForce : OPTIONAL IfcForceMeasure;\n\tPreStress : OPTIONAL IfcPressureMeasure;\n\tFrictionCoefficient : OPTIONAL IfcNormalisedRatioMeasure;\n\tAnchorageSlip : OPTIONAL IfcPositiveLengthMeasure;\n\tMinCurvatureRadius : OPTIONAL IfcPositiveLengthMeasure;\n WHERE\n\tWR1 : (PredefinedType <> IfcTendonTypeEnum.USERDEFINED) OR ((PredefinedType = IfcTendonTypeEnum.USERDEFINED) AND EXISTS(SELF\\IfcObject.ObjectType));\n"
       }
-    },
-    {
-      "id": "IfcTendonTypeEnum",
-      "group": 2,
-      "details": {}
     },
     {
       "id": "IfcTendonAnchor",
@@ -5050,16 +4401,6 @@ export default {
       }
     },
     {
-      "id": "IfcTimeSeriesDataTypeEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
-      "id": "IfcDataOriginEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcTimeSeriesReferenceRelationship",
       "group": 1,
       "details": {
@@ -5072,11 +4413,6 @@ export default {
       "details": {
         "definition": " IfcTimeSeriesSchedule\n SUBTYPE OF (IfcControl);\n\tApplicableDates : OPTIONAL LIST [1:?] OF IfcDateTimeSelect;\n\tTimeSeriesScheduleType : IfcTimeSeriesScheduleTypeEnum;\n\tTimeSeries : IfcTimeSeries;\n WHERE\n\tWR41 : NOT(TimeSeriesScheduleType=IfcTimeSeriesScheduleTypeEnum.USERDEFINED) OR EXISTS(SELF\\IfcObject.ObjectType);\n"
       }
-    },
-    {
-      "id": "IfcTimeSeriesScheduleTypeEnum",
-      "group": 2,
-      "details": {}
     },
     {
       "id": "IfcTimeSeriesValue",
@@ -5100,11 +4436,6 @@ export default {
       }
     },
     {
-      "id": "IfcTransformerTypeEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcTransportElement",
       "group": 1,
       "details": {
@@ -5117,11 +4448,6 @@ export default {
       "details": {
         "definition": " IfcTransportElementType\n SUBTYPE OF (IfcElementType);\n\tPredefinedType : IfcTransportElementTypeEnum;\n"
       }
-    },
-    {
-      "id": "IfcTransportElementTypeEnum",
-      "group": 2,
-      "details": {}
     },
     {
       "id": "IfcTrapeziumProfileDef",
@@ -5150,11 +4476,6 @@ export default {
       }
     },
     {
-      "id": "IfcTubeBundleTypeEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcTwoDirectionRepeatFactor",
       "group": 1,
       "details": {
@@ -5176,21 +4497,11 @@ export default {
       }
     },
     {
-      "id": "IfcUnitaryEquipmentTypeEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcValveType",
       "group": 1,
       "details": {
         "definition": " IfcValveType\n SUBTYPE OF (IfcFlowControllerType);\n\tPredefinedType : IfcValveTypeEnum;\n WHERE\n\tWR1 : (PredefinedType <> IfcValveTypeEnum.USERDEFINED) OR\n            ((PredefinedType = IfcValveTypeEnum.USERDEFINED) AND EXISTS(SELF\\IfcElementType.ElementType));\n"
       }
-    },
-    {
-      "id": "IfcValveTypeEnum",
-      "group": 2,
-      "details": {}
     },
     {
       "id": "IfcVertexBasedTextureMap",
@@ -5221,11 +4532,6 @@ export default {
       }
     },
     {
-      "id": "IfcVibrationIsolatorTypeEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcVirtualElement",
       "group": 1,
       "details": {
@@ -5254,21 +4560,11 @@ export default {
       }
     },
     {
-      "id": "IfcWallTypeEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcWasteTerminalType",
       "group": 1,
       "details": {
         "definition": " IfcWasteTerminalType\n SUBTYPE OF (IfcFlowTerminalType);\n\tPredefinedType : IfcWasteTerminalTypeEnum;\n"
       }
-    },
-    {
-      "id": "IfcWasteTerminalTypeEnum",
-      "group": 2,
-      "details": {}
     },
     {
       "id": "IfcWaterProperties",
@@ -5299,26 +4595,11 @@ export default {
       }
     },
     {
-      "id": "IfcWindowPanelOperationEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
       "id": "IfcWindowStyle",
       "group": 1,
       "details": {
         "definition": " IfcWindowStyle\n SUBTYPE OF (IfcTypeProduct);\n\tConstructionType : IfcWindowStyleConstructionEnum;\n\tOperationType : IfcWindowStyleOperationEnum;\n\tParameterTakesPrecedence : BOOLEAN;\n\tSizeable : BOOLEAN;\n"
       }
-    },
-    {
-      "id": "IfcWindowStyleConstructionEnum",
-      "group": 2,
-      "details": {}
-    },
-    {
-      "id": "IfcWindowStyleOperationEnum",
-      "group": 2,
-      "details": {}
     },
     {
       "id": "IfcWorkControl",
@@ -5383,18 +4664,8 @@ export default {
       "value": 1
     },
     {
-      "source": "IfcActorRole",
-      "target": "IfcRoleEnum",
-      "value": 1
-    },
-    {
       "source": "IfcActuatorType",
       "target": "IfcDistributionControlElementType",
-      "value": 1
-    },
-    {
-      "source": "IfcActuatorType",
-      "target": "IfcActuatorTypeEnum",
       "value": 1
     },
     {
@@ -5403,18 +4674,8 @@ export default {
       "value": 1
     },
     {
-      "source": "IfcAirTerminalBoxType",
-      "target": "IfcAirTerminalBoxTypeEnum",
-      "value": 1
-    },
-    {
       "source": "IfcAirTerminalType",
       "target": "IfcFlowTerminalType",
-      "value": 1
-    },
-    {
-      "source": "IfcAirTerminalType",
-      "target": "IfcAirTerminalTypeEnum",
       "value": 1
     },
     {
@@ -5423,18 +4684,8 @@ export default {
       "value": 1
     },
     {
-      "source": "IfcAirToAirHeatRecoveryType",
-      "target": "IfcAirToAirHeatRecoveryTypeEnum",
-      "value": 1
-    },
-    {
       "source": "IfcAlarmType",
       "target": "IfcDistributionControlElementType",
-      "value": 1
-    },
-    {
-      "source": "IfcAlarmType",
-      "target": "IfcAlarmTypeEnum",
       "value": 1
     },
     {
@@ -5520,11 +4771,6 @@ export default {
     {
       "source": "IfcAppliedValueRelationship",
       "target": "IfcAppliedValue",
-      "value": 1
-    },
-    {
-      "source": "IfcAppliedValueRelationship",
-      "target": "IfcArithmeticOperatorEnum",
       "value": 1
     },
     {
@@ -5698,11 +4944,6 @@ export default {
       "value": 1
     },
     {
-      "source": "IfcBeamType",
-      "target": "IfcBeamTypeEnum",
-      "value": 1
-    },
-    {
       "source": "IfcBezierCurve",
       "target": "IfcBSplineCurve",
       "value": 1
@@ -5740,11 +4981,6 @@ export default {
     {
       "source": "IfcBoilerType",
       "target": "IfcEnergyConversionDeviceType",
-      "value": 1
-    },
-    {
-      "source": "IfcBoilerType",
-      "target": "IfcBoilerTypeEnum",
       "value": 1
     },
     {
@@ -5868,11 +5104,6 @@ export default {
       "value": 1
     },
     {
-      "source": "IfcBuildingElementProxyType",
-      "target": "IfcBuildingElementProxyTypeEnum",
-      "value": 1
-    },
-    {
       "source": "IfcBuildingElementType",
       "target": "IfcElementType",
       "value": 1
@@ -5913,28 +5144,13 @@ export default {
       "value": 1
     },
     {
-      "source": "IfcCableCarrierFittingType",
-      "target": "IfcCableCarrierFittingTypeEnum",
-      "value": 1
-    },
-    {
       "source": "IfcCableCarrierSegmentType",
       "target": "IfcFlowSegmentType",
       "value": 1
     },
     {
-      "source": "IfcCableCarrierSegmentType",
-      "target": "IfcCableCarrierSegmentTypeEnum",
-      "value": 1
-    },
-    {
       "source": "IfcCableSegmentType",
       "target": "IfcFlowSegmentType",
-      "value": 1
-    },
-    {
-      "source": "IfcCableSegmentType",
-      "target": "IfcCableSegmentTypeEnum",
       "value": 1
     },
     {
@@ -6005,11 +5221,6 @@ export default {
     {
       "source": "IfcChillerType",
       "target": "IfcEnergyConversionDeviceType",
-      "value": 1
-    },
-    {
-      "source": "IfcChillerType",
-      "target": "IfcChillerTypeEnum",
       "value": 1
     },
     {
@@ -6093,11 +5304,6 @@ export default {
       "value": 1
     },
     {
-      "source": "IfcCoilType",
-      "target": "IfcCoilTypeEnum",
-      "value": 1
-    },
-    {
       "source": "IfcColourRgb",
       "target": "IfcColourSpecification",
       "value": 1
@@ -6125,11 +5331,6 @@ export default {
     {
       "source": "IfcColumnType",
       "target": "IfcBuildingElementType",
-      "value": 1
-    },
-    {
-      "source": "IfcColumnType",
-      "target": "IfcColumnTypeEnum",
       "value": 1
     },
     {
@@ -6173,18 +5374,8 @@ export default {
       "value": 1
     },
     {
-      "source": "IfcCompressorType",
-      "target": "IfcCompressorTypeEnum",
-      "value": 1
-    },
-    {
       "source": "IfcCondenserType",
       "target": "IfcEnergyConversionDeviceType",
-      "value": 1
-    },
-    {
-      "source": "IfcCondenserType",
-      "target": "IfcCondenserTypeEnum",
       "value": 1
     },
     {
@@ -6278,18 +5469,8 @@ export default {
       "value": 1
     },
     {
-      "source": "IfcConstraint",
-      "target": "IfcConstraintEnum",
-      "value": 1
-    },
-    {
       "source": "IfcConstraintAggregationRelationship",
       "target": "IfcConstraint",
-      "value": 1
-    },
-    {
-      "source": "IfcConstraintAggregationRelationship",
-      "target": "IfcLogicalOperatorEnum",
       "value": 1
     },
     {
@@ -6343,11 +5524,6 @@ export default {
       "value": 1
     },
     {
-      "source": "IfcControllerType",
-      "target": "IfcControllerTypeEnum",
-      "value": 1
-    },
-    {
       "source": "IfcConversionBasedUnit",
       "target": "IfcNamedUnit",
       "value": 1
@@ -6368,18 +5544,8 @@ export default {
       "value": 1
     },
     {
-      "source": "IfcCooledBeamType",
-      "target": "IfcCooledBeamTypeEnum",
-      "value": 1
-    },
-    {
       "source": "IfcCoolingTowerType",
       "target": "IfcEnergyConversionDeviceType",
-      "value": 1
-    },
-    {
-      "source": "IfcCoolingTowerType",
-      "target": "IfcCoolingTowerTypeEnum",
       "value": 1
     },
     {
@@ -6408,11 +5574,6 @@ export default {
       "value": 1
     },
     {
-      "source": "IfcCostSchedule",
-      "target": "IfcCostScheduleTypeEnum",
-      "value": 1
-    },
-    {
       "source": "IfcCostValue",
       "target": "IfcAppliedValue",
       "value": 1
@@ -6430,11 +5591,6 @@ export default {
     {
       "source": "IfcCoveringType",
       "target": "IfcBuildingElementType",
-      "value": 1
-    },
-    {
-      "source": "IfcCoveringType",
-      "target": "IfcCoveringTypeEnum",
       "value": 1
     },
     {
@@ -6588,11 +5744,6 @@ export default {
       "value": 1
     },
     {
-      "source": "IfcCurtainWallType",
-      "target": "IfcCurtainWallTypeEnum",
-      "value": 1
-    },
-    {
       "source": "IfcCurve",
       "target": "IfcGeometricRepresentationItem",
       "value": 1
@@ -6643,11 +5794,6 @@ export default {
       "value": 1
     },
     {
-      "source": "IfcDamperType",
-      "target": "IfcDamperTypeEnum",
-      "value": 1
-    },
-    {
       "source": "IfcDateAndTime",
       "target": "IfcCalendarDate",
       "value": 1
@@ -6685,11 +5831,6 @@ export default {
     {
       "source": "IfcDerivedProfileDef",
       "target": "IfcCartesianTransformationOperator2D",
-      "value": 1
-    },
-    {
-      "source": "IfcDerivedUnit",
-      "target": "IfcDerivedUnitEnum",
       "value": 1
     },
     {
@@ -6755,11 +5896,6 @@ export default {
     {
       "source": "IfcDistributionChamberElementType",
       "target": "IfcDistributionFlowElementType",
-      "value": 1
-    },
-    {
-      "source": "IfcDistributionChamberElementType",
-      "target": "IfcDistributionChamberElementTypeEnum",
       "value": 1
     },
     {
@@ -6833,28 +5969,8 @@ export default {
       "value": 1
     },
     {
-      "source": "IfcDoorPanelProperties",
-      "target": "IfcDoorPanelOperationEnum",
-      "value": 1
-    },
-    {
-      "source": "IfcDoorPanelProperties",
-      "target": "IfcDoorPanelPositionEnum",
-      "value": 1
-    },
-    {
       "source": "IfcDoorStyle",
       "target": "IfcTypeProduct",
-      "value": 1
-    },
-    {
-      "source": "IfcDoorStyle",
-      "target": "IfcDoorStyleOperationEnum",
-      "value": 1
-    },
-    {
-      "source": "IfcDoorStyle",
-      "target": "IfcDoorStyleConstructionEnum",
       "value": 1
     },
     {
@@ -6893,28 +6009,13 @@ export default {
       "value": 1
     },
     {
-      "source": "IfcDuctFittingType",
-      "target": "IfcDuctFittingTypeEnum",
-      "value": 1
-    },
-    {
       "source": "IfcDuctSegmentType",
       "target": "IfcFlowSegmentType",
       "value": 1
     },
     {
-      "source": "IfcDuctSegmentType",
-      "target": "IfcDuctSegmentTypeEnum",
-      "value": 1
-    },
-    {
       "source": "IfcDuctSilencerType",
       "target": "IfcFlowTreatmentDeviceType",
-      "value": 1
-    },
-    {
-      "source": "IfcDuctSilencerType",
-      "target": "IfcDuctSilencerTypeEnum",
       "value": 1
     },
     {
@@ -6958,18 +6059,8 @@ export default {
       "value": 1
     },
     {
-      "source": "IfcElectricApplianceType",
-      "target": "IfcElectricApplianceTypeEnum",
-      "value": 1
-    },
-    {
       "source": "IfcElectricDistributionPoint",
       "target": "IfcFlowController",
-      "value": 1
-    },
-    {
-      "source": "IfcElectricDistributionPoint",
-      "target": "IfcElectricDistributionPointFunctionEnum",
       "value": 1
     },
     {
@@ -6978,18 +6069,8 @@ export default {
       "value": 1
     },
     {
-      "source": "IfcElectricFlowStorageDeviceType",
-      "target": "IfcElectricFlowStorageDeviceTypeEnum",
-      "value": 1
-    },
-    {
       "source": "IfcElectricGeneratorType",
       "target": "IfcEnergyConversionDeviceType",
-      "value": 1
-    },
-    {
-      "source": "IfcElectricGeneratorType",
-      "target": "IfcElectricGeneratorTypeEnum",
       "value": 1
     },
     {
@@ -6998,28 +6079,13 @@ export default {
       "value": 1
     },
     {
-      "source": "IfcElectricHeaterType",
-      "target": "IfcElectricHeaterTypeEnum",
-      "value": 1
-    },
-    {
       "source": "IfcElectricMotorType",
       "target": "IfcEnergyConversionDeviceType",
       "value": 1
     },
     {
-      "source": "IfcElectricMotorType",
-      "target": "IfcElectricMotorTypeEnum",
-      "value": 1
-    },
-    {
       "source": "IfcElectricTimeControlType",
       "target": "IfcFlowControllerType",
-      "value": 1
-    },
-    {
-      "source": "IfcElectricTimeControlType",
-      "target": "IfcElectricTimeControlTypeEnum",
       "value": 1
     },
     {
@@ -7055,11 +6121,6 @@ export default {
     {
       "source": "IfcElementAssembly",
       "target": "IfcElement",
-      "value": 1
-    },
-    {
-      "source": "IfcElementAssembly",
-      "target": "IfcElementAssemblyTypeEnum",
       "value": 1
     },
     {
@@ -7148,11 +6209,6 @@ export default {
       "value": 1
     },
     {
-      "source": "IfcEnvironmentalImpactValue",
-      "target": "IfcEnvironmentalImpactCategoryEnum",
-      "value": 1
-    },
-    {
       "source": "IfcEquipmentElement",
       "target": "IfcElement",
       "value": 1
@@ -7168,18 +6224,8 @@ export default {
       "value": 1
     },
     {
-      "source": "IfcEvaporativeCoolerType",
-      "target": "IfcEvaporativeCoolerTypeEnum",
-      "value": 1
-    },
-    {
       "source": "IfcEvaporatorType",
       "target": "IfcEnergyConversionDeviceType",
-      "value": 1
-    },
-    {
-      "source": "IfcEvaporatorType",
-      "target": "IfcEvaporatorTypeEnum",
       "value": 1
     },
     {
@@ -7283,11 +6329,6 @@ export default {
       "value": 1
     },
     {
-      "source": "IfcFanType",
-      "target": "IfcFanTypeEnum",
-      "value": 1
-    },
-    {
       "source": "IfcFastener",
       "target": "IfcElementComponent",
       "value": 1
@@ -7368,18 +6409,8 @@ export default {
       "value": 1
     },
     {
-      "source": "IfcFilterType",
-      "target": "IfcFilterTypeEnum",
-      "value": 1
-    },
-    {
       "source": "IfcFireSuppressionTerminalType",
       "target": "IfcFlowTerminalType",
-      "value": 1
-    },
-    {
-      "source": "IfcFireSuppressionTerminalType",
-      "target": "IfcFireSuppressionTerminalTypeEnum",
       "value": 1
     },
     {
@@ -7408,18 +6439,8 @@ export default {
       "value": 1
     },
     {
-      "source": "IfcFlowInstrumentType",
-      "target": "IfcFlowInstrumentTypeEnum",
-      "value": 1
-    },
-    {
       "source": "IfcFlowMeterType",
       "target": "IfcFlowControllerType",
-      "value": 1
-    },
-    {
-      "source": "IfcFlowMeterType",
-      "target": "IfcFlowMeterTypeEnum",
       "value": 1
     },
     {
@@ -7479,22 +6500,12 @@ export default {
     },
     {
       "source": "IfcFluidFlowProperties",
-      "target": "IfcPropertySourceEnum",
-      "value": 1
-    },
-    {
-      "source": "IfcFluidFlowProperties",
       "target": "IfcMaterial",
       "value": 1
     },
     {
       "source": "IfcFooting",
       "target": "IfcBuildingElement",
-      "value": 1
-    },
-    {
-      "source": "IfcFooting",
-      "target": "IfcFootingTypeEnum",
       "value": 1
     },
     {
@@ -7523,18 +6534,8 @@ export default {
       "value": 1
     },
     {
-      "source": "IfcFurnitureType",
-      "target": "IfcAssemblyPlaceEnum",
-      "value": 1
-    },
-    {
       "source": "IfcGasTerminalType",
       "target": "IfcFlowTerminalType",
-      "value": 1
-    },
-    {
-      "source": "IfcGasTerminalType",
-      "target": "IfcGasTerminalTypeEnum",
       "value": 1
     },
     {
@@ -7580,11 +6581,6 @@ export default {
     {
       "source": "IfcGeometricRepresentationSubContext",
       "target": "IfcGeometricRepresentationContext",
-      "value": 1
-    },
-    {
-      "source": "IfcGeometricRepresentationSubContext",
-      "target": "IfcGeometricProjectionEnum",
       "value": 1
     },
     {
@@ -7638,18 +6634,8 @@ export default {
       "value": 1
     },
     {
-      "source": "IfcHeatExchangerType",
-      "target": "IfcHeatExchangerTypeEnum",
-      "value": 1
-    },
-    {
       "source": "IfcHumidifierType",
       "target": "IfcEnergyConversionDeviceType",
-      "value": 1
-    },
-    {
-      "source": "IfcHumidifierType",
-      "target": "IfcHumidifierTypeEnum",
       "value": 1
     },
     {
@@ -7699,11 +6685,6 @@ export default {
     },
     {
       "source": "IfcInventory",
-      "target": "IfcInventoryTypeEnum",
-      "value": 1
-    },
-    {
-      "source": "IfcInventory",
       "target": "IfcActorSelect",
       "value": 1
     },
@@ -7725,11 +6706,6 @@ export default {
     {
       "source": "IfcJunctionBoxType",
       "target": "IfcFlowFittingType",
-      "value": 1
-    },
-    {
-      "source": "IfcJunctionBoxType",
-      "target": "IfcJunctionBoxTypeEnum",
       "value": 1
     },
     {
@@ -7758,11 +6734,6 @@ export default {
       "value": 1
     },
     {
-      "source": "IfcLampType",
-      "target": "IfcLampTypeEnum",
-      "value": 1
-    },
-    {
       "source": "IfcLibraryInformation",
       "target": "IfcLabel",
       "value": 1
@@ -7780,16 +6751,6 @@ export default {
     {
       "source": "IfcLightFixtureType",
       "target": "IfcFlowTerminalType",
-      "value": 1
-    },
-    {
-      "source": "IfcLightFixtureType",
-      "target": "IfcLightFixtureTypeEnum",
-      "value": 1
-    },
-    {
-      "source": "IfcLightIntensityDistribution",
-      "target": "IfcLightDistributionCurveEnum",
       "value": 1
     },
     {
@@ -7835,11 +6796,6 @@ export default {
     {
       "source": "IfcLightSourceGoniometric",
       "target": "IfcLuminousFluxMeasure",
-      "value": 1
-    },
-    {
-      "source": "IfcLightSourceGoniometric",
-      "target": "IfcLightEmissionSourceEnum",
       "value": 1
     },
     {
@@ -7994,16 +6950,6 @@ export default {
     },
     {
       "source": "IfcMaterialLayerSetUsage",
-      "target": "IfcLayerSetDirectionEnum",
-      "value": 1
-    },
-    {
-      "source": "IfcMaterialLayerSetUsage",
-      "target": "IfcDirectionSenseEnum",
-      "value": 1
-    },
-    {
-      "source": "IfcMaterialLayerSetUsage",
       "target": "IfcLengthMeasure",
       "value": 1
     },
@@ -8058,18 +7004,8 @@ export default {
       "value": 1
     },
     {
-      "source": "IfcMemberType",
-      "target": "IfcMemberTypeEnum",
-      "value": 1
-    },
-    {
       "source": "IfcMetric",
       "target": "IfcConstraint",
-      "value": 1
-    },
-    {
-      "source": "IfcMetric",
-      "target": "IfcBenchmarkEnum",
       "value": 1
     },
     {
@@ -8078,18 +7014,8 @@ export default {
       "value": 1
     },
     {
-      "source": "IfcMonetaryUnit",
-      "target": "IfcCurrencyEnum",
-      "value": 1
-    },
-    {
       "source": "IfcMotorConnectionType",
       "target": "IfcEnergyConversionDeviceType",
-      "value": 1
-    },
-    {
-      "source": "IfcMotorConnectionType",
-      "target": "IfcMotorConnectionTypeEnum",
       "value": 1
     },
     {
@@ -8113,11 +7039,6 @@ export default {
       "value": 1
     },
     {
-      "source": "IfcNamedUnit",
-      "target": "IfcUnitEnum",
-      "value": 1
-    },
-    {
       "source": "IfcObject",
       "target": "IfcObjectDefinition",
       "value": 1
@@ -8133,18 +7054,8 @@ export default {
       "value": 1
     },
     {
-      "source": "IfcObjective",
-      "target": "IfcObjectiveEnum",
-      "value": 1
-    },
-    {
       "source": "IfcOccupant",
       "target": "IfcActor",
-      "value": 1
-    },
-    {
-      "source": "IfcOccupant",
-      "target": "IfcOccupantTypeEnum",
       "value": 1
     },
     {
@@ -8248,11 +7159,6 @@ export default {
       "value": 1
     },
     {
-      "source": "IfcOutletType",
-      "target": "IfcOutletTypeEnum",
-      "value": 1
-    },
-    {
       "source": "IfcOwnerHistory",
       "target": "IfcPersonAndOrganization",
       "value": 1
@@ -8260,11 +7166,6 @@ export default {
     {
       "source": "IfcOwnerHistory",
       "target": "IfcApplication",
-      "value": 1
-    },
-    {
-      "source": "IfcOwnerHistory",
-      "target": "IfcChangeActionEnum",
       "value": 1
     },
     {
@@ -8300,16 +7201,6 @@ export default {
     {
       "source": "IfcPermeableCoveringProperties",
       "target": "IfcPropertySetDefinition",
-      "value": 1
-    },
-    {
-      "source": "IfcPermeableCoveringProperties",
-      "target": "IfcPermeableCoveringOperationEnum",
-      "value": 1
-    },
-    {
-      "source": "IfcPermeableCoveringProperties",
-      "target": "IfcWindowPanelPositionEnum",
       "value": 1
     },
     {
@@ -8358,28 +7249,13 @@ export default {
       "value": 1
     },
     {
-      "source": "IfcPile",
-      "target": "IfcPileTypeEnum",
-      "value": 1
-    },
-    {
       "source": "IfcPipeFittingType",
       "target": "IfcFlowFittingType",
       "value": 1
     },
     {
-      "source": "IfcPipeFittingType",
-      "target": "IfcPipeFittingTypeEnum",
-      "value": 1
-    },
-    {
       "source": "IfcPipeSegmentType",
       "target": "IfcFlowSegmentType",
-      "value": 1
-    },
-    {
-      "source": "IfcPipeSegmentType",
-      "target": "IfcPipeSegmentTypeEnum",
       "value": 1
     },
     {
@@ -8450,11 +7326,6 @@ export default {
     {
       "source": "IfcPlateType",
       "target": "IfcBuildingElementType",
-      "value": 1
-    },
-    {
-      "source": "IfcPlateType",
-      "target": "IfcPlateTypeEnum",
       "value": 1
     },
     {
@@ -8593,11 +7464,6 @@ export default {
       "value": 1
     },
     {
-      "source": "IfcProcedure",
-      "target": "IfcProcedureTypeEnum",
-      "value": 1
-    },
-    {
       "source": "IfcProcess",
       "target": "IfcObject",
       "value": 1
@@ -8615,11 +7481,6 @@ export default {
     {
       "source": "IfcProductsOfCombustionProperties",
       "target": "IfcMaterialProperties",
-      "value": 1
-    },
-    {
-      "source": "IfcProfileDef",
-      "target": "IfcProfileTypeEnum",
       "value": 1
     },
     {
@@ -8643,18 +7504,8 @@ export default {
       "value": 1
     },
     {
-      "source": "IfcProjectOrder",
-      "target": "IfcProjectOrderTypeEnum",
-      "value": 1
-    },
-    {
       "source": "IfcProjectOrderRecord",
       "target": "IfcControl",
-      "value": 1
-    },
-    {
-      "source": "IfcProjectOrderRecord",
-      "target": "IfcProjectOrderRecordTypeEnum",
       "value": 1
     },
     {
@@ -8698,16 +7549,6 @@ export default {
       "value": 1
     },
     {
-      "source": "IfcPropertyEnumeratedValue",
-      "target": "IfcSimpleProperty",
-      "value": 1
-    },
-    {
-      "source": "IfcPropertyEnumeration",
-      "target": "IfcLabel",
-      "value": 1
-    },
-    {
       "source": "IfcPropertyListValue",
       "target": "IfcSimpleProperty",
       "value": 1
@@ -8748,28 +7589,13 @@ export default {
       "value": 1
     },
     {
-      "source": "IfcProtectiveDeviceType",
-      "target": "IfcProtectiveDeviceTypeEnum",
-      "value": 1
-    },
-    {
       "source": "IfcProxy",
       "target": "IfcProduct",
       "value": 1
     },
     {
-      "source": "IfcProxy",
-      "target": "IfcObjectTypeEnum",
-      "value": 1
-    },
-    {
       "source": "IfcPumpType",
       "target": "IfcFlowMovingDeviceType",
-      "value": 1
-    },
-    {
-      "source": "IfcPumpType",
-      "target": "IfcPumpTypeEnum",
       "value": 1
     },
     {
@@ -8848,18 +7674,8 @@ export default {
       "value": 1
     },
     {
-      "source": "IfcRailingType",
-      "target": "IfcRailingTypeEnum",
-      "value": 1
-    },
-    {
       "source": "IfcRamp",
       "target": "IfcBuildingElement",
-      "value": 1
-    },
-    {
-      "source": "IfcRamp",
-      "target": "IfcRampTypeEnum",
       "value": 1
     },
     {
@@ -8870,11 +7686,6 @@ export default {
     {
       "source": "IfcRampFlightType",
       "target": "IfcBuildingElementType",
-      "value": 1
-    },
-    {
-      "source": "IfcRampFlightType",
-      "target": "IfcRampFlightTypeEnum",
       "value": 1
     },
     {
@@ -9000,11 +7811,6 @@ export default {
     {
       "source": "IfcReinforcingBar",
       "target": "IfcAreaMeasure",
-      "value": 1
-    },
-    {
-      "source": "IfcReinforcingBar",
-      "target": "IfcReinforcingBarRoleEnum",
       "value": 1
     },
     {
@@ -9240,16 +8046,6 @@ export default {
     {
       "source": "IfcRelConnectsPathElements",
       "target": "IfcRelConnectsElements",
-      "value": 1
-    },
-    {
-      "source": "IfcRelConnectsPathElements",
-      "target": "IfcConnectionTypeEnum",
-      "value": 1
-    },
-    {
-      "source": "IfcRelConnectsPathElements",
-      "target": "IfcConnectionTypeEnum",
       "value": 1
     },
     {
@@ -9513,11 +8309,6 @@ export default {
       "value": 1
     },
     {
-      "source": "IfcRelSequence",
-      "target": "IfcSequenceEnum",
-      "value": 1
-    },
-    {
       "source": "IfcRelServicesBuildings",
       "target": "IfcRelConnects",
       "value": 1
@@ -9535,16 +8326,6 @@ export default {
     {
       "source": "IfcRelSpaceBoundary",
       "target": "IfcSpace",
-      "value": 1
-    },
-    {
-      "source": "IfcRelSpaceBoundary",
-      "target": "IfcPhysicalOrVirtualEnum",
-      "value": 1
-    },
-    {
-      "source": "IfcRelSpaceBoundary",
-      "target": "IfcInternalOrExternalEnum",
       "value": 1
     },
     {
@@ -9618,11 +8399,6 @@ export default {
       "value": 1
     },
     {
-      "source": "IfcRibPlateProfileProperties",
-      "target": "IfcRibPlateDirectionEnum",
-      "value": 1
-    },
-    {
       "source": "IfcRightCircularCone",
       "target": "IfcCsgPrimitive3D",
       "value": 1
@@ -9655,11 +8431,6 @@ export default {
     {
       "source": "IfcRoof",
       "target": "IfcBuildingElement",
-      "value": 1
-    },
-    {
-      "source": "IfcRoof",
-      "target": "IfcRoofTypeEnum",
       "value": 1
     },
     {
@@ -9703,18 +8474,8 @@ export default {
       "value": 1
     },
     {
-      "source": "IfcSanitaryTerminalType",
-      "target": "IfcSanitaryTerminalTypeEnum",
-      "value": 1
-    },
-    {
       "source": "IfcScheduleTimeControl",
       "target": "IfcControl",
-      "value": 1
-    },
-    {
-      "source": "IfcSectionProperties",
-      "target": "IfcSectionTypeEnum",
       "value": 1
     },
     {
@@ -9730,11 +8491,6 @@ export default {
     {
       "source": "IfcSectionReinforcementProperties",
       "target": "IfcLengthMeasure",
-      "value": 1
-    },
-    {
-      "source": "IfcSectionReinforcementProperties",
-      "target": "IfcReinforcingBarRoleEnum",
       "value": 1
     },
     {
@@ -9758,18 +8514,8 @@ export default {
       "value": 1
     },
     {
-      "source": "IfcSensorType",
-      "target": "IfcSensorTypeEnum",
-      "value": 1
-    },
-    {
       "source": "IfcServiceLife",
       "target": "IfcControl",
-      "value": 1
-    },
-    {
-      "source": "IfcServiceLife",
-      "target": "IfcServiceLifeTypeEnum",
       "value": 1
     },
     {
@@ -9780,11 +8526,6 @@ export default {
     {
       "source": "IfcServiceLifeFactor",
       "target": "IfcPropertySetDefinition",
-      "value": 1
-    },
-    {
-      "source": "IfcServiceLifeFactor",
-      "target": "IfcServiceLifeFactorTypeEnum",
       "value": 1
     },
     {
@@ -9833,11 +8574,6 @@ export default {
       "value": 1
     },
     {
-      "source": "IfcSlabType",
-      "target": "IfcSlabTypeEnum",
-      "value": 1
-    },
-    {
       "source": "IfcSlippageConnectionCondition",
       "target": "IfcStructuralConnectionCondition",
       "value": 1
@@ -9873,18 +8609,8 @@ export default {
       "value": 1
     },
     {
-      "source": "IfcSpace",
-      "target": "IfcInternalOrExternalEnum",
-      "value": 1
-    },
-    {
       "source": "IfcSpaceHeaterType",
       "target": "IfcEnergyConversionDeviceType",
-      "value": 1
-    },
-    {
-      "source": "IfcSpaceHeaterType",
-      "target": "IfcSpaceHeaterTypeEnum",
       "value": 1
     },
     {
@@ -9909,22 +8635,7 @@ export default {
     },
     {
       "source": "IfcSpaceThermalLoadProperties",
-      "target": "IfcThermalLoadSourceEnum",
-      "value": 1
-    },
-    {
-      "source": "IfcSpaceThermalLoadProperties",
-      "target": "IfcPropertySourceEnum",
-      "value": 1
-    },
-    {
-      "source": "IfcSpaceThermalLoadProperties",
       "target": "IfcPowerMeasure",
-      "value": 1
-    },
-    {
-      "source": "IfcSpaceThermalLoadProperties",
-      "target": "IfcThermalLoadTypeEnum",
       "value": 1
     },
     {
@@ -9933,18 +8644,8 @@ export default {
       "value": 1
     },
     {
-      "source": "IfcSpaceType",
-      "target": "IfcSpaceTypeEnum",
-      "value": 1
-    },
-    {
       "source": "IfcSpatialStructureElement",
       "target": "IfcProduct",
-      "value": 1
-    },
-    {
-      "source": "IfcSpatialStructureElement",
-      "target": "IfcElementCompositionEnum",
       "value": 1
     },
     {
@@ -9968,18 +8669,8 @@ export default {
       "value": 1
     },
     {
-      "source": "IfcStackTerminalType",
-      "target": "IfcStackTerminalTypeEnum",
-      "value": 1
-    },
-    {
       "source": "IfcStair",
       "target": "IfcBuildingElement",
-      "value": 1
-    },
-    {
-      "source": "IfcStair",
-      "target": "IfcStairTypeEnum",
       "value": 1
     },
     {
@@ -9990,11 +8681,6 @@ export default {
     {
       "source": "IfcStairFlightType",
       "target": "IfcBuildingElementType",
-      "value": 1
-    },
-    {
-      "source": "IfcStairFlightType",
-      "target": "IfcStairFlightTypeEnum",
       "value": 1
     },
     {
@@ -10013,18 +8699,8 @@ export default {
       "value": 1
     },
     {
-      "source": "IfcStructuralActivity",
-      "target": "IfcGlobalOrLocalEnum",
-      "value": 1
-    },
-    {
       "source": "IfcStructuralAnalysisModel",
       "target": "IfcSystem",
-      "value": 1
-    },
-    {
-      "source": "IfcStructuralAnalysisModel",
-      "target": "IfcAnalysisModelTypeEnum",
       "value": 1
     },
     {
@@ -10043,11 +8719,6 @@ export default {
       "value": 1
     },
     {
-      "source": "IfcStructuralCurveMember",
-      "target": "IfcStructuralCurveTypeEnum",
-      "value": 1
-    },
-    {
       "source": "IfcStructuralCurveMemberVarying",
       "target": "IfcStructuralCurveMember",
       "value": 1
@@ -10063,11 +8734,6 @@ export default {
       "value": 1
     },
     {
-      "source": "IfcStructuralLinearAction",
-      "target": "IfcProjectedOrTrueLengthEnum",
-      "value": 1
-    },
-    {
       "source": "IfcStructuralLinearActionVarying",
       "target": "IfcStructuralLinearAction",
       "value": 1
@@ -10080,21 +8746,6 @@ export default {
     {
       "source": "IfcStructuralLoadGroup",
       "target": "IfcGroup",
-      "value": 1
-    },
-    {
-      "source": "IfcStructuralLoadGroup",
-      "target": "IfcLoadGroupTypeEnum",
-      "value": 1
-    },
-    {
-      "source": "IfcStructuralLoadGroup",
-      "target": "IfcActionTypeEnum",
-      "value": 1
-    },
-    {
-      "source": "IfcStructuralLoadGroup",
-      "target": "IfcActionSourceTypeEnum",
       "value": 1
     },
     {
@@ -10148,11 +8799,6 @@ export default {
       "value": 1
     },
     {
-      "source": "IfcStructuralPlanarAction",
-      "target": "IfcProjectedOrTrueLengthEnum",
-      "value": 1
-    },
-    {
       "source": "IfcStructuralPlanarActionVarying",
       "target": "IfcStructuralPlanarAction",
       "value": 1
@@ -10193,11 +8839,6 @@ export default {
       "value": 1
     },
     {
-      "source": "IfcStructuralResultGroup",
-      "target": "IfcAnalysisTheoryTypeEnum",
-      "value": 1
-    },
-    {
       "source": "IfcStructuralSteelProfileProperties",
       "target": "IfcStructuralProfileProperties",
       "value": 1
@@ -10210,11 +8851,6 @@ export default {
     {
       "source": "IfcStructuralSurfaceMember",
       "target": "IfcStructuralMember",
-      "value": 1
-    },
-    {
-      "source": "IfcStructuralSurfaceMember",
-      "target": "IfcStructuralSurfaceTypeEnum",
       "value": 1
     },
     {
@@ -10353,18 +8989,8 @@ export default {
       "value": 1
     },
     {
-      "source": "IfcSurfaceStyleRendering",
-      "target": "IfcReflectanceMethodEnum",
-      "value": 1
-    },
-    {
       "source": "IfcSurfaceStyleShading",
       "target": "IfcColourRgb",
-      "value": 1
-    },
-    {
-      "source": "IfcSurfaceTexture",
-      "target": "IfcSurfaceTextureEnum",
       "value": 1
     },
     {
@@ -10428,11 +9054,6 @@ export default {
       "value": 1
     },
     {
-      "source": "IfcSwitchingDeviceType",
-      "target": "IfcSwitchingDeviceTypeEnum",
-      "value": 1
-    },
-    {
       "source": "IfcSymbolStyle",
       "target": "IfcPresentationStyle",
       "value": 1
@@ -10483,11 +9104,6 @@ export default {
       "value": 1
     },
     {
-      "source": "IfcTankType",
-      "target": "IfcTankTypeEnum",
-      "value": 1
-    },
-    {
       "source": "IfcTask",
       "target": "IfcProcess",
       "value": 1
@@ -10505,11 +9121,6 @@ export default {
     {
       "source": "IfcTendon",
       "target": "IfcReinforcingElement",
-      "value": 1
-    },
-    {
-      "source": "IfcTendon",
-      "target": "IfcTendonTypeEnum",
       "value": 1
     },
     {
@@ -10633,16 +9244,6 @@ export default {
       "value": 1
     },
     {
-      "source": "IfcTimeSeries",
-      "target": "IfcTimeSeriesDataTypeEnum",
-      "value": 1
-    },
-    {
-      "source": "IfcTimeSeries",
-      "target": "IfcDataOriginEnum",
-      "value": 1
-    },
-    {
       "source": "IfcTimeSeriesReferenceRelationship",
       "target": "IfcTimeSeries",
       "value": 1
@@ -10650,11 +9251,6 @@ export default {
     {
       "source": "IfcTimeSeriesSchedule",
       "target": "IfcControl",
-      "value": 1
-    },
-    {
-      "source": "IfcTimeSeriesSchedule",
-      "target": "IfcTimeSeriesScheduleTypeEnum",
       "value": 1
     },
     {
@@ -10678,11 +9274,6 @@ export default {
       "value": 1
     },
     {
-      "source": "IfcTransformerType",
-      "target": "IfcTransformerTypeEnum",
-      "value": 1
-    },
-    {
       "source": "IfcTransportElement",
       "target": "IfcElement",
       "value": 1
@@ -10690,11 +9281,6 @@ export default {
     {
       "source": "IfcTransportElementType",
       "target": "IfcElementType",
-      "value": 1
-    },
-    {
-      "source": "IfcTransportElementType",
-      "target": "IfcTransportElementTypeEnum",
       "value": 1
     },
     {
@@ -10740,11 +9326,6 @@ export default {
     {
       "source": "IfcTubeBundleType",
       "target": "IfcEnergyConversionDeviceType",
-      "value": 1
-    },
-    {
-      "source": "IfcTubeBundleType",
-      "target": "IfcTubeBundleTypeEnum",
       "value": 1
     },
     {
@@ -10798,18 +9379,8 @@ export default {
       "value": 1
     },
     {
-      "source": "IfcUnitaryEquipmentType",
-      "target": "IfcUnitaryEquipmentTypeEnum",
-      "value": 1
-    },
-    {
       "source": "IfcValveType",
       "target": "IfcFlowControllerType",
-      "value": 1
-    },
-    {
-      "source": "IfcValveType",
-      "target": "IfcValveTypeEnum",
       "value": 1
     },
     {
@@ -10858,11 +9429,6 @@ export default {
       "value": 1
     },
     {
-      "source": "IfcVibrationIsolatorType",
-      "target": "IfcVibrationIsolatorTypeEnum",
-      "value": 1
-    },
-    {
       "source": "IfcVirtualElement",
       "target": "IfcElement",
       "value": 1
@@ -10883,18 +9449,8 @@ export default {
       "value": 1
     },
     {
-      "source": "IfcWallType",
-      "target": "IfcWallTypeEnum",
-      "value": 1
-    },
-    {
       "source": "IfcWasteTerminalType",
       "target": "IfcFlowTerminalType",
-      "value": 1
-    },
-    {
-      "source": "IfcWasteTerminalType",
-      "target": "IfcWasteTerminalTypeEnum",
       "value": 1
     },
     {
@@ -10918,28 +9474,8 @@ export default {
       "value": 1
     },
     {
-      "source": "IfcWindowPanelProperties",
-      "target": "IfcWindowPanelOperationEnum",
-      "value": 1
-    },
-    {
-      "source": "IfcWindowPanelProperties",
-      "target": "IfcWindowPanelPositionEnum",
-      "value": 1
-    },
-    {
       "source": "IfcWindowStyle",
       "target": "IfcTypeProduct",
-      "value": 1
-    },
-    {
-      "source": "IfcWindowStyle",
-      "target": "IfcWindowStyleConstructionEnum",
-      "value": 1
-    },
-    {
-      "source": "IfcWindowStyle",
-      "target": "IfcWindowStyleOperationEnum",
       "value": 1
     },
     {

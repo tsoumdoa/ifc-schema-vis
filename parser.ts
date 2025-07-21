@@ -40,6 +40,11 @@ export function parseIfcSchema(ifcFilePath: string): GraphData {
 
 		const entityName = entityNameMatch[1];
 
+		// IGNORE nodes that contain "Enum"
+		if (entityName.includes('Enum')) {
+			continue;
+		}
+
 		if (!nodeIds.has(entityName)) {
 			nodes.push({ id: entityName, group: 1, details: { definition: entityContent } });
 			nodeIds.add(entityName);
@@ -52,6 +57,11 @@ export function parseIfcSchema(ifcFilePath: string): GraphData {
 			const supertypeNames = supertypesStr.split(',').map((s) => s.trim());
 			for (const supertypeName of supertypeNames) {
 				if (supertypeName) {
+					// IGNORE supertypes that contain "Enum"
+					if (supertypeName.includes('Enum')) {
+						continue;
+					}
+
 					if (!nodeIds.has(supertypeName)) {
 						nodes.push({ id: supertypeName, group: 1, details: {} });
 						nodeIds.add(supertypeName);
@@ -82,6 +92,11 @@ export function parseIfcSchema(ifcFilePath: string): GraphData {
 			attrType = attrType.trim();
 
 			if (attrType && attrType.startsWith('Ifc')) {
+				// IGNORE attribute types that contain "Enum"
+				if (attrType.includes('Enum')) {
+					continue;
+				}
+
 				if (!nodeIds.has(attrType)) {
 					nodes.push({ id: attrType, group: 2, details: {} });
 					nodeIds.add(attrType);
