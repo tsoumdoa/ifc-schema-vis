@@ -27,7 +27,12 @@
 		return Object.create(d);
 	});
 
-	let showCard;
+	$: if (simulation && nodes && links) {
+		simulation.nodes(nodes);
+		simulation.force('link')?.links(links);
+		simulation.alpha(0.3).restart();
+	}
+
 	let transform = d3.zoomIdentity;
 	interface MyNode extends d3.SimulationNodeDatum {
 		id: string;
@@ -116,8 +121,8 @@
 		}
 
 		links.forEach((d) => {
-			const sourceRadius = 40 + Math.sqrt(d.source.size) / 5;
-			const targetRadius = 40 + Math.sqrt(d.target.size) / 5;
+			const sourceRadius = 46 + Math.sqrt(d.source.size) / 5;
+			const targetRadius = 46 + Math.sqrt(d.target.size) / 5;
 			const angle = Math.atan2(d.target.y - d.source.y, d.target.x - d.source.x);
 
 			const startX = d.source.x + sourceRadius * Math.cos(angle);
@@ -156,9 +161,9 @@
 
 		nodes.forEach((d, i) => {
 			context.beginPath();
-			context.arc(d.x, d.y, 40 + Math.sqrt(d.size) / 5, 0, 2 * Math.PI);
+			context.arc(d.x, d.y, 45 + Math.sqrt(d.size) / 5, 0, 2 * Math.PI);
 			context.strokeStyle = '#000';
-			context.lineWidth = 1.5;
+			context.lineWidth = 5.0;
 			if (activeNode) {
 				if (d.id === activeNode.id) {
 					context.fillStyle = 'orange';

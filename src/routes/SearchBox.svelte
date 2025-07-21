@@ -38,9 +38,24 @@
     z-index: 10;
   }
   .search-input {
-    padding: 8px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    width: 200px;
+    padding: 8px 12px;
+    border: 3px solid #000;
+    border-radius: 0;
+    background: #fff;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    font-weight: bold;
+    width: 250px;
+    box-shadow: 4px 4px 0px #000;
+    transition: none;
+  }
+  .search-input:focus {
+    outline: none;
+    background: #f0f0f0;
+    box-shadow: 6px 6px 0px #000;
+  }
+  .search-input::placeholder {
+    color: #666;
+    font-weight: normal;
   }
 </style>
