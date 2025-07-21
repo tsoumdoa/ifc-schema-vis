@@ -26,35 +26,6 @@
 		return Object.create(d);
 	});
 
-	function groupColour(context, d) {
-		let nodesize = 2 + Math.sqrt(d.size) / 5;
-		let radgrad = context.createRadialGradient(d.x, d.y, nodesize / 3, d.x, d.y, nodesize);
-		radgrad.addColorStop(0, '#01abfc');
-		radgrad.addColorStop(0.1, '#01abfc');
-		radgrad.addColorStop(1, '#01abfc00');
-
-		let radgrad2 = context.createRadialGradient(d.x, d.y, nodesize / 3, d.x, d.y, nodesize);
-		radgrad2.addColorStop(0, '#7A17F6');
-		radgrad2.addColorStop(0.1, '#7A17F6');
-		radgrad2.addColorStop(1, '#7A17F600');
-
-		let radgrad3 = context.createRadialGradient(d.x, d.y, nodesize / 3, d.x, d.y, nodesize);
-		radgrad3.addColorStop(0, '#B635E3');
-		radgrad3.addColorStop(0.1, '#B635E3');
-		radgrad3.addColorStop(1, '#B635E300');
-
-		let radgrad4 = context.createRadialGradient(d.x, d.y, nodesize / 3, d.x, d.y, nodesize);
-		radgrad4.addColorStop(0, '#E4158B');
-		radgrad4.addColorStop(0.1, '#E4158B');
-		radgrad4.addColorStop(1, '#E4158B00');
-
-		let radgrad5 = context.createRadialGradient(d.x, d.y, nodesize / 3, d.x, d.y, nodesize);
-		radgrad4.addColorStop(0, '#F9123B');
-		radgrad4.addColorStop(0.1, '#F9123B');
-		radgrad4.addColorStop(1, '#F9123B00');
-		let radgrads = [radgrad, radgrad2, radgrad3, radgrad4, radgrad5];
-		return radgrads[d.group % 5];
-	}
 	let showCard;
 	let transform = d3.zoomIdentity;
 	let simulation, context, zoom;
@@ -132,49 +103,32 @@
 		context.scale(transform.k, transform.k);
 
 		links.forEach((d) => {
-			const angle = Math.atan2(d.target.y - d.source.y, d.target.x - d.source.x);
-			const nodeRadius = 2 + Math.sqrt(d.target.size) / 5;
-			const targetX = d.target.x - nodeRadius * Math.cos(angle);
-			const targetY = d.target.y - nodeRadius * Math.sin(angle);
-			const headlen = 10; // length of head in pixels
-
 			context.beginPath();
 			context.moveTo(d.source.x, d.source.y);
-			context.lineTo(targetX, targetY);
-
-			// arrowhead
-			context.moveTo(targetX, targetY);
-			context.lineTo(
-				targetX - headlen * Math.cos(angle - Math.PI / 6),
-				targetY - headlen * Math.sin(angle - Math.PI / 6)
-			);
-			context.moveTo(targetX, targetY);
-			context.lineTo(
-				targetX - headlen * Math.cos(angle + Math.PI / 6),
-				targetY - headlen * Math.sin(angle + Math.PI / 6)
-			);
-
-			context.globalAlpha = 0.3;
-			context.strokeStyle = '#999';
-			context.lineWidth = Math.cbrt(d.value) / 2;
+			context.lineTo(d.target.x, d.target.y);
+			context.strokeStyle = '#000';
+			context.lineWidth = 1;
 			context.stroke();
-			context.globalAlpha = 1;
 		});
 
 		nodes.forEach((d, i) => {
 			context.beginPath();
-			context.arc(d.x, d.y, 2 + Math.sqrt(d.size) / 5, 0, 2 * Math.PI);
-			context.strokeStyle = 'transparent';
+			context.arc(d.x, d.y, 40 + Math.sqrt(d.size) / 5, 0, 2 * Math.PI);
+			context.strokeStyle = '#000';
 			context.lineWidth = 1.5;
-			context.stroke();
-			context.fillStyle = groupColour(context, d);
+			context.fillStyle = '#fff';
 			context.fill();
-			if (d.size > max / 50) {
-				context.fillStyle = 'white';
-				d.id
-					.split(/(?=[A-Z])/)
-					.forEach((word, index) => context.fillText(word, d.x - 10, d.y + 10 * index));
-			}
+			context.stroke();
+			// if (d.size > max / 50) {
+			context.fillStyle = '#000';
+			context.textAlign = 'center';
+			context.textBaseline = 'top';
+			context.font = '10px monospace';
+			d.id.split(/(?=[A-Z])/).forEach((word, index, words) => {
+				const yOffset = -((words.length - 1) * 10) / 2;
+				context.fillText(word, d.x, d.y + yOffset + index * 10);
+			});
+			// }
 		});
 		context.restore();
 	}
@@ -252,7 +206,7 @@
 
 <style>
 	:global(body) {
-		background-color: #000;
+		background-color: #f0f0f0;
 	}
 	.container {
 		width: 100%;
@@ -262,10 +216,14 @@
 	}
 	#nodeDetails {
 		position: absolute;
-		top: 1%;
-		left: 1%;
+		top: 10px;
+		left: 10px;
+		background: #fff;
+		border: 1px solid #000;
 		width: unset;
-		color: #eee;
+		color: #000;
 		overflow-y: hidden;
+		padding: 10px;
 	}
 </style>
+
