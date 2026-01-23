@@ -67,7 +67,7 @@
 			.force('center', d3.forceCenter(width / 2, height / 2))
 			.force(
 				'collision',
-				d3.forceCollide().radius((d) => 80 + Math.sqrt(d.size) / 5)
+				d3.forceCollide().radius(() => 60)
 			)
 			.on('tick', simulationUpdate);
 
@@ -121,22 +121,30 @@
 		}
 
 		links.forEach((d) => {
-			const sourceRadius = 46 + Math.sqrt(d.source.size) / 5;
-			const targetRadius = 46 + Math.sqrt(d.target.size) / 5;
+			context.font = '10px monospace';
+			const sourceTextWidth = context.measureText(d.source.id).width;
+			const targetTextWidth = context.measureText(d.target.id).width;
+			const sourceWidth = sourceTextWidth + 20;
+			const targetWidth = targetTextWidth + 20;
+			const boxHeight = 30;
 			const angle = Math.atan2(d.target.y - d.source.y, d.target.x - d.source.x);
 
-			const startX = d.source.x + sourceRadius * Math.cos(angle);
-			const startY = d.source.y + sourceRadius * Math.sin(angle);
-			const endX = d.target.x - targetRadius * Math.cos(angle);
-			const endY = d.target.y - targetRadius * Math.sin(angle);
+			const start = getRectIntersection(d.source.x, d.source.y, angle, sourceWidth, boxHeight);
+			const end = getRectIntersection(
+				d.target.x,
+				d.target.y,
+				angle + Math.PI,
+				targetWidth,
+				boxHeight
+			);
 
 			const isConnected =
 				activeNode && (d.source.id === activeNode.id || d.target.id === activeNode.id);
 			const isUnselected = activeNode && !isConnected;
 
 			context.beginPath();
-			context.moveTo(startX, startY);
-			context.lineTo(endX, endY);
+			context.moveTo(start.x, start.y);
+			context.lineTo(end.x, end.y);
 			context.strokeStyle = isUnselected ? 'rgba(0,0,0,0.1)' : '#000';
 			context.lineWidth = isUnselected ? 1 : 1.5;
 			context.stroke();
@@ -144,15 +152,15 @@
 			// arrowhead
 			const headlen = 10;
 			context.beginPath();
-			context.moveTo(endX, endY);
+			context.moveTo(end.x, end.y);
 			context.lineTo(
-				endX - headlen * Math.cos(angle - Math.PI / 6),
-				endY - headlen * Math.sin(angle - Math.PI / 6)
+				end.x - headlen * Math.cos(angle - Math.PI / 6),
+				end.y - headlen * Math.sin(angle - Math.PI / 6)
 			);
-			context.moveTo(endX, endY);
+			context.moveTo(end.x, end.y);
 			context.lineTo(
-				endX - headlen * Math.cos(angle + Math.PI / 6),
-				endY - headlen * Math.sin(angle + Math.PI / 6)
+				end.x - headlen * Math.cos(angle + Math.PI / 6),
+				end.y - headlen * Math.sin(angle + Math.PI / 6)
 			);
 			context.lineWidth = isUnselected ? 1 : 3.0;
 			context.strokeStyle = isUnselected ? 'rgba(0,0,0,0.1)' : '#000';
@@ -160,10 +168,15 @@
 		});
 
 		nodes.forEach((d, i) => {
+			context.font = 'bold 10px monospace';
+			const textWidth = context.measureText(d.id).width;
+			const padding = 20;
+			const boxWidth = textWidth + padding;
+			const boxHeight = 30;
 			context.beginPath();
-			context.arc(d.x, d.y, 45 + Math.sqrt(d.size) / 5, 0, 2 * Math.PI);
+			context.roundRect(d.x - boxWidth / 2, d.y - boxHeight / 2, boxWidth, boxHeight, 8);
 			context.strokeStyle = '#000';
-			context.lineWidth = 5.0;
+			context.lineWidth = 1.5;
 			if (activeNode) {
 				if (d.id === activeNode.id) {
 					context.fillStyle = 'orange';
@@ -182,12 +195,8 @@
 			// if (d.size > max / 50) {
 			context.fillStyle = '#000';
 			context.textAlign = 'center';
-			context.textBaseline = 'top';
-			context.font = '10px monospace';
-			d.id.split(/(?=[A-Z])/).forEach((word, index, words) => {
-				const yOffset = -((words.length - 1) * 10) / 2;
-				context.fillText(word, d.x, d.y + yOffset + index * 10);
-			});
+			context.textBaseline = 'middle';
+			context.fillText(d.id, d.x, d.y);
 			// }
 		});
 		context.restore();
@@ -227,6 +236,40 @@
 		if (!currentEvent.active) simulation.alphaTarget(0);
 		currentEvent.subject.fx = null;
 		currentEvent.subject.fy = null;
+	}
+
+	function getRectIntersection(x, y, angle, width, height) {
+		const halfW = width / 2;
+		const halfH = height / 2;
+		const dx = Math.cos(angle);
+		const dy = Math.sin(angle);
+
+		const intersections = [];
+
+		if (Math.abs(dx) > 0.0001) {
+			const t1 = -halfW / dx;
+			const t2 = halfW / dx;
+			const y1 = t1 * dy;
+			const y2 = t2 * dy;
+			if (Math.abs(y1) <= halfH) intersections.push({ x: -halfW, y: y1, t: t1 });
+			if (Math.abs(y2) <= halfH) intersections.push({ x: halfW, y: y2, t: t2 });
+		}
+
+		if (Math.abs(dy) > 0.0001) {
+			const t1 = -halfH / dy;
+			const t2 = halfH / dy;
+			const x1 = t1 * dx;
+			const x2 = t2 * dx;
+			if (Math.abs(x1) <= halfW) intersections.push({ x: x1, y: -halfH, t: t1 });
+			if (Math.abs(x2) <= halfW) intersections.push({ x: x2, y: halfH, t: t2 });
+		}
+
+		const forward = intersections.filter((p) => p.t > 0.001);
+		if (forward.length > 0) {
+			const result = forward.reduce((a, b) => (a.t < b.t ? a : b));
+			return { x: x + result.x, y: y + result.y };
+		}
+		return { x, y };
 	}
 
 	function resize() {
