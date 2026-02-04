@@ -9,7 +9,7 @@
 	let width = 500;
 	let height = 600;
 	let max = 100;
-	let activeNode = false;
+	let activeNode: MyNode | false = false;
 	let sortMode = 'force';
 
 	$: links = graph.links.map((d) => Object.create(d));
@@ -50,9 +50,10 @@
 	let context: CanvasRenderingContext2D;
 	let zoom: ZoomBehavior<Element, unknown>;
 	let dpi = 1;
+	let zoomSelection: any;
 	onMount(() => {
 		dpi = window.devicePixelRatio || 1;
-		context = canvas.getContext('2d');
+		context = canvas.getContext('2d') as CanvasRenderingContext2D;
 		resize();
 
 		simulation = d3
@@ -61,7 +62,7 @@
 				'link',
 				d3
 					.forceLink(links)
-					.id((d) => d.id)
+					.id((d) => (d as MyNode).id)
 					.distance((d) => 2 + Math.sqrt(max) / 4 + 130 * Math.pow(2, -d.value / 1000))
 			)
 			.force('charge', d3.forceManyBody().strength(-300))
@@ -74,19 +75,7 @@
 			.force('y', d3.forceY(height / 2).strength(0.1))
 			.on('tick', simulationUpdate);
 
-		// title
-		d3.select(context.canvas).on('click', (event) => {
-			const d = simulation.find(
-				transform.invertX(event.offsetX * dpi),
-				transform.invertY(event.offsetY * dpi),
-				50
-			);
-
-			if (d) activeNode = d;
-			else activeNode = false;
-		});
-
-		d3.select(canvas)
+		zoomSelection = d3.select(canvas)
 			.call(
 				d3
 					.drag()
@@ -97,11 +86,26 @@
 					.on('end', dragended)
 			)
 			.call(
-				d3
+				(zoom = d3
 					.zoom()
 					.scaleExtent([1 / 10, 8])
-					.on('zoom', zoomed)
+					.on('zoom', zoomed))
 			);
+
+		d3.select(context.canvas).on('click', (event) => {
+			const d = simulation.find(
+				transform.invertX(event.offsetX * dpi),
+				transform.invertY(event.offsetY * dpi),
+				50
+			);
+
+			if (d) {
+				activeNode = d;
+				zoomToNode(d);
+			} else {
+				activeNode = false;
+			}
+		});
 	});
 
 	function simulationUpdate() {
@@ -112,7 +116,7 @@
 
 		const sourceNodeIds = new Set();
 		const targetNodeIds = new Set();
-		if (activeNode) {
+		if (activeNode && typeof activeNode === 'object' && 'id' in activeNode) {
 			links.forEach((link) => {
 				if (link.source.id === activeNode.id) {
 					targetNodeIds.add(link.target.id);
@@ -142,7 +146,8 @@
 			);
 
 			const isConnected =
-				activeNode && (d.source.id === activeNode.id || d.target.id === activeNode.id);
+				activeNode && typeof activeNode === 'object' && 'id' in activeNode && 
+				(d.source.id === activeNode.id || d.target.id === activeNode.id);
 			const isUnselected = activeNode && !isConnected;
 
 			context.beginPath();
@@ -180,7 +185,7 @@
 			context.roundRect(d.x - boxWidth / 2, d.y - boxHeight / 2, boxWidth, boxHeight, 8);
 			context.strokeStyle = '#000';
 			context.lineWidth = 1.5;
-			if (activeNode) {
+			if (activeNode && typeof activeNode === 'object' && 'id' in activeNode) {
 				if (d.id === activeNode.id) {
 					context.fillStyle = 'orange';
 				} else if (sourceNodeIds.has(d.id)) {
@@ -208,6 +213,62 @@
 	function zoomed(currentEvent) {
 		transform = currentEvent.transform;
 		simulationUpdate();
+	}
+
+	function zoomToNode(node: MyNode) {
+		const connectedNodes: MyNode[] = [node];
+		links.forEach((link) => {
+			if (link.source.id === node.id) {
+				connectedNodes.push(link.target as MyNode);
+			}
+			if (link.target.id === node.id) {
+				connectedNodes.push(link.source as MyNode);
+			}
+		});
+
+		let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+		connectedNodes.forEach((n) => {
+			const nx = n.x || 0;
+			const ny = n.y || 0;
+			if (nx < minX) minX = nx;
+			if (nx > maxX) maxX = nx;
+			if (ny < minY) minY = ny;
+			if (ny > maxY) maxY = ny;
+		});
+
+		const padding = 80;
+		const contentWidth = maxX - minX + padding * 2;
+		const contentHeight = maxY - minY + padding * 2;
+
+		const nodeDetailsEl = document.getElementById('nodeDetails');
+		let descriptionWidth = 0;
+		let descriptionHeight = 0;
+		if (nodeDetailsEl) {
+			descriptionWidth = nodeDetailsEl.offsetWidth + 10;
+			descriptionHeight = nodeDetailsEl.offsetHeight + 10;
+		}
+
+		const viewportWidth = (width / dpi) - descriptionWidth;
+		const viewportHeight = (height / dpi) - descriptionHeight;
+
+		const scaleX = viewportWidth / contentWidth;
+		const scaleY = viewportHeight / contentHeight;
+		let scale = Math.min(scaleX, scaleY);
+
+		scale = Math.min(Math.max(scale, 0.3), 4);
+
+		const centerX = (minX + maxX) / 2;
+		const centerY = (minY + maxY) / 2;
+		const availableCenterX = descriptionWidth + viewportWidth / 2;
+		const availableCenterY = descriptionHeight + viewportHeight / 2;
+		const x = -centerX * scale + availableCenterX;
+		const y = -centerY * scale + availableCenterY;
+		const newTransform = d3.zoomIdentity.translate(x, y).scale(scale);
+
+		zoomSelection
+			.transition()
+			.duration(750)
+			.call(zoom.transform, newTransform);
 	}
 
 	// Use the d3-force simulation to locate the node
