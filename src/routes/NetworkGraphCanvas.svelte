@@ -314,19 +314,6 @@
 				node.fy = y;
 				x += nodeWidth + 10;
 			});
-		} else if (sortMode === 'circular') {
-			const maxNodeWidth = Math.max(...nodeWidths);
-			const minSpacing = maxNodeWidth + 10;
-			const circumference = nodes.length * minSpacing;
-			const radius = Math.max(circumference / (2 * Math.PI), Math.min(canvasWidth, canvasHeight) / 4);
-			const centerX = canvasWidth / 2;
-			const centerY = canvasHeight / 2;
-			
-			nodes.forEach((node, i) => {
-				const angle = (2 * Math.PI * i) / nodes.length - Math.PI / 2;
-				node.fx = centerX + radius * Math.cos(angle);
-				node.fy = centerY + radius * Math.sin(angle);
-			});
 		} else {
 			nodes.forEach((node) => {
 				node.fx = null;
@@ -382,7 +369,6 @@
 		<button class:active={sortMode === 'force'} on:click={() => sortMode = 'force'}>Force</button>
 		<button class:active={sortMode === 'alphabetical'} on:click={() => sortMode = 'alphabetical'}>Alphabetical</button>
 		<button class:active={sortMode === 'size'} on:click={() => sortMode = 'size'}>By Size</button>
-		<button class:active={sortMode === 'circular'} on:click={() => sortMode = 'circular'}>Circular</button>
 	</div>
 	<canvas use:fitToContainer bind:this={canvas}> </canvas>
 </div>
@@ -396,6 +382,7 @@
 		height: 100%;
 		position: relative;
 		flex: 1;
+		overflow: hidden;
 	}
 	#nodeDetails {
 		position: absolute;
@@ -407,6 +394,7 @@
 		color: #000;
 		overflow-y: hidden;
 		padding: 10px;
+		z-index: 10;
 	}
 	.controls {
 		position: absolute;
@@ -421,6 +409,7 @@
 		border-radius: 4px;
 		justify-content: center;
 		flex-wrap: wrap;
+		z-index: 10;
 	}
 	.controls button {
 		padding: 4px 8px;
@@ -430,6 +419,7 @@
 		font-size: 11px;
 		font-family: monospace;
 		flex-shrink: 0;
+		white-space: nowrap;
 	}
 	.controls button:hover {
 		background: #f0f0f0;

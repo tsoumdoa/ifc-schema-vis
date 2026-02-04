@@ -50,7 +50,8 @@
 <style>
 	.chart {
 		width: 100%;
-		height: 100%;
+		flex: 1;
+		min-height: 0;
 		margin: 0rem;
 		display: flex;
 		flex-direction: column;
@@ -60,6 +61,8 @@
 		margin: 0rem;
 		width: 100vw;
 		height: 100vh;
+		display: flex;
+		flex-direction: column;
 	}
 	h2 {
 		margin-top: 1rem;
