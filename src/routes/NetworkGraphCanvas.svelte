@@ -1,4 +1,4 @@
-<script lang="ts">
+  * 4<script lang="ts">
 	import { onMount } from 'svelte';
 	import * as d3 from 'd3';
 	import type { Simulation, ZoomBehavior } from 'd3';
@@ -64,12 +64,14 @@
 					.id((d) => d.id)
 					.distance((d) => 2 + Math.sqrt(max) / 4 + 130 * Math.pow(2, -d.value / 1000))
 			)
-			.force('charge', d3.forceManyBody())
+			.force('charge', d3.forceManyBody().strength(-300))
 			.force('center', d3.forceCenter(width / 2, height / 2))
 			.force(
 				'collision',
-				d3.forceCollide().radius(() => 60)
+				d3.forceCollide().radius(() => 65)
 			)
+			.force('x', d3.forceX(width / 2).strength(0.1))
+			.force('y', d3.forceY(height / 2).strength(0.1))
 			.on('tick', simulationUpdate);
 
 		// title
@@ -240,7 +242,7 @@
 	}
 
 	function getRectIntersection(x, y, angle, width, height) {
-		const halfW = width / 2;
+		const halfW = width / 2  * 4;
 		const halfH = height / 2;
 		const dx = Math.cos(angle);
 		const dy = Math.sin(angle);
@@ -279,40 +281,79 @@
 		context.font = 'bold 10px monospace';
 		const nodeWidths = nodes.map((n) => context.measureText(n.id).width + 20);
 		const boxHeight = 30;
-		const canvasWidth = width;
-		const canvasHeight = height;
+		const canvasWidth = width / dpi;
+		const canvasHeight = height / dpi;
+		const padding = 5;
+		const gapX = 10;
+		const gapY = 10;
+		const availableWidth = canvasWidth - padding * 2;
+		const availableHeight = canvasHeight - padding * 2;
 
 		if (sortMode === 'alphabetical') {
 			const sorted = [...nodes].map((n, i) => ({ node: n, nodeWidth: nodeWidths[i] }))
 				.sort((a, b) => a.node.id.localeCompare(b.node.id));
-			const padding = 50;
-			let x = padding;
-			let y = padding + boxHeight;
 			
-			sorted.forEach(({ node, nodeWidth }) => {
-				if (x + nodeWidth > canvasWidth - padding) {
-					x = padding;
-					y += boxHeight + 20;
-				}
-				node.fx = x + nodeWidth / 2;
-				node.fy = y;
-				x += nodeWidth + 10;
+			const maxNodeWidth = Math.max(...nodeWidths);
+			const minCellWidth = maxNodeWidth + gapX;
+			const minCellHeight = boxHeight + gapY;
+			
+			const maxCols = Math.floor(availableWidth / minCellWidth);
+			const maxRows = Math.floor(availableHeight / minCellHeight)  * 3;
+			
+			let cols = Math.max(1, Math.min(maxCols, sorted.length));
+			let rows = Math.ceil(sorted.length / cols);
+			
+			if (rows > maxRows && maxCols >= 1) {
+				rows = Math.max(1, maxRows);
+				cols = Math.ceil(sorted.length / rows);
+			}
+			
+			const cellWidth = Math.max(minCellWidth, availableWidth / cols);
+			const cellHeight = Math.max(minCellHeight, availableHeight / rows);
+			
+			const totalWidth = cols * cellWidth;
+			const totalHeight = rows * cellHeight;
+			const startX = padding + (availableWidth - totalWidth) / 2;
+			const startY = padding + (availableHeight - totalHeight) / 2;
+			
+			sorted.forEach(({ node, nodeWidth }, i) => {
+				const col = i % cols;
+				const row = Math.floor(i / cols);
+				node.fx = startX + col * cellWidth + cellWidth / 2;
+				node.fy = startY + row * cellHeight + cellHeight / 2;
 			});
 		} else if (sortMode === 'size') {
 			const sorted = [...nodes].map((n, i) => ({ node: n, nodeWidth: nodeWidths[i] }))
 				.sort((a, b) => b.node.size - a.node.size);
-			const padding = 50;
-			let x = padding;
-			let y = padding + boxHeight;
 			
-			sorted.forEach(({ node, nodeWidth }) => {
-				if (x + nodeWidth > canvasWidth - padding) {
-					x = padding;
-					y += boxHeight + 20;
-				}
-				node.fx = x + nodeWidth / 2;
-				node.fy = y;
-				x += nodeWidth + 10;
+			const maxNodeWidth = Math.max(...nodeWidths);
+			const minCellWidth = maxNodeWidth + gapX;
+			const minCellHeight = boxHeight + gapY;
+			
+			const maxCols = Math.floor(availableWidth / minCellWidth);
+			const maxRows = Math.floor(availableHeight / minCellHeight) * 3;
+			
+			let cols = Math.max(1, Math.min(maxCols, sorted.length));
+			let rows = Math.ceil(sorted.length / cols);
+			
+			if (rows > maxRows && maxCols >= 1) {
+				rows = Math.max(1, maxRows);
+				cols = Math.ceil(sorted.length / rows);
+			}
+			
+			const cellWidth = Math.max(minCellWidth, availableWidth / cols);
+			const cellHeight = Math.max(minCellHeight, availableHeight / rows);
+			
+			const totalWidth = cols * cellWidth;
+			const totalHeight = rows * cellHeight;
+			const startX = padding + (availableWidth - totalWidth) / 2;
+			const startY = padding + (availableHeight - totalHeight) / 2;
+			
+			sorted.forEach(({ node, nodeWidth }, i) => {
+				const col = i % cols;
+				const row = Math.floor(i / cols);
+				node.fx = startX + col * cellWidth + cellWidth / 2;
+				node.fy = startY + row * cellHeight + cellHeight / 2;
 			});
 		} else {
 			nodes.forEach((node) => {
@@ -333,6 +374,8 @@
 		fitToContainer(canvas);
 		if (simulation) {
 			simulation.force('center', d3.forceCenter(width / 2, height / 2));
+			simulation.force('x', d3.forceX(width / 2).strength(0.1));
+			simulation.force('y', d3.forceY(height / 2).strength(0.1));
 			simulation.alpha(0.3).restart();
 		}
 	}
