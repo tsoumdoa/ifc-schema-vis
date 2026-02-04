@@ -1,4 +1,4 @@
-  * 4<script lang="ts">
+  <script lang="ts">
 	import { onMount } from 'svelte';
 	import * as d3 from 'd3';
 	import type { Simulation, ZoomBehavior } from 'd3';
@@ -237,8 +237,17 @@
 
 	function dragended(currentEvent) {
 		if (!currentEvent.active) simulation.alphaTarget(0);
-		currentEvent.subject.fx = null;
-		currentEvent.subject.fy = null;
+		if (sortMode !== 'force') {
+			const originalX = currentEvent.subject.savedFx;
+			const originalY = currentEvent.subject.savedFy;
+			if (originalX !== undefined && originalY !== undefined) {
+				currentEvent.subject.fx = originalX;
+				currentEvent.subject.fy = originalY;
+			}
+		} else {
+			currentEvent.subject.fx = null;
+			currentEvent.subject.fy = null;
+		}
 	}
 
 	function getRectIntersection(x, y, angle, width, height) {
@@ -315,12 +324,14 @@
 			const totalHeight = rows * cellHeight;
 			const startX = padding + (availableWidth - totalWidth) / 2;
 			const startY = padding + (availableHeight - totalHeight) / 2;
-			
+
 			sorted.forEach(({ node, nodeWidth }, i) => {
 				const col = i % cols;
 				const row = Math.floor(i / cols);
 				node.fx = startX + col * cellWidth + cellWidth / 2;
 				node.fy = startY + row * cellHeight + cellHeight / 2;
+				node.savedFx = node.fx;
+				node.savedFy = node.fy;
 			});
 		} else if (sortMode === 'size') {
 			const sorted = [...nodes].map((n, i) => ({ node: n, nodeWidth: nodeWidths[i] }))
@@ -348,12 +359,14 @@
 			const totalHeight = rows * cellHeight;
 			const startX = padding + (availableWidth - totalWidth) / 2;
 			const startY = padding + (availableHeight - totalHeight) / 2;
-			
+
 			sorted.forEach(({ node, nodeWidth }, i) => {
 				const col = i % cols;
 				const row = Math.floor(i / cols);
 				node.fx = startX + col * cellWidth + cellWidth / 2;
 				node.fy = startY + row * cellHeight + cellHeight / 2;
+				node.savedFx = node.fx;
+				node.savedFy = node.fy;
 			});
 		} else {
 			nodes.forEach((node) => {
@@ -361,8 +374,10 @@
 				node.fy = null;
 			});
 		}
-		
-		simulation.alpha(0.3).restart();
+
+		if (sortMode === 'force') {
+			simulation.alpha(0.3).restart();
+		}
 	}
 
 	$: if (nodes && sortMode) {
