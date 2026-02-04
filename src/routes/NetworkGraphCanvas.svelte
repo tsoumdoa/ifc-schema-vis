@@ -10,6 +10,7 @@
 	let height = 600;
 	let max = 100;
 	let activeNode = false;
+	let sortMode = 'force';
 
 	$: links = graph.links.map((d) => Object.create(d));
 	$: nodes = graph.nodes.map((d) => {
@@ -272,6 +273,74 @@
 		return { x, y };
 	}
 
+	function applyLayout() {
+		if (!simulation || !nodes) return;
+
+		context.font = 'bold 10px monospace';
+		const nodeWidths = nodes.map((n) => context.measureText(n.id).width + 20);
+		const boxHeight = 30;
+		const canvasWidth = width;
+		const canvasHeight = height;
+
+		if (sortMode === 'alphabetical') {
+			const sorted = [...nodes].map((n, i) => ({ node: n, nodeWidth: nodeWidths[i] }))
+				.sort((a, b) => a.node.id.localeCompare(b.node.id));
+			const padding = 50;
+			let x = padding;
+			let y = padding + boxHeight;
+			
+			sorted.forEach(({ node, nodeWidth }) => {
+				if (x + nodeWidth > canvasWidth - padding) {
+					x = padding;
+					y += boxHeight + 20;
+				}
+				node.fx = x + nodeWidth / 2;
+				node.fy = y;
+				x += nodeWidth + 10;
+			});
+		} else if (sortMode === 'size') {
+			const sorted = [...nodes].map((n, i) => ({ node: n, nodeWidth: nodeWidths[i] }))
+				.sort((a, b) => b.node.size - a.node.size);
+			const padding = 50;
+			let x = padding;
+			let y = padding + boxHeight;
+			
+			sorted.forEach(({ node, nodeWidth }) => {
+				if (x + nodeWidth > canvasWidth - padding) {
+					x = padding;
+					y += boxHeight + 20;
+				}
+				node.fx = x + nodeWidth / 2;
+				node.fy = y;
+				x += nodeWidth + 10;
+			});
+		} else if (sortMode === 'circular') {
+			const maxNodeWidth = Math.max(...nodeWidths);
+			const minSpacing = maxNodeWidth + 10;
+			const circumference = nodes.length * minSpacing;
+			const radius = Math.max(circumference / (2 * Math.PI), Math.min(canvasWidth, canvasHeight) / 4);
+			const centerX = canvasWidth / 2;
+			const centerY = canvasHeight / 2;
+			
+			nodes.forEach((node, i) => {
+				const angle = (2 * Math.PI * i) / nodes.length - Math.PI / 2;
+				node.fx = centerX + radius * Math.cos(angle);
+				node.fy = centerY + radius * Math.sin(angle);
+			});
+		} else {
+			nodes.forEach((node) => {
+				node.fx = null;
+				node.fy = null;
+			});
+		}
+		
+		simulation.alpha(0.3).restart();
+	}
+
+	$: if (nodes && sortMode) {
+		applyLayout();
+	}
+
 	function resize() {
 		if (!canvas) return;
 		fitToContainer(canvas);
@@ -309,6 +378,12 @@
 			{/if}
 		</breadcrumb>
 	{/if}
+	<div class="controls">
+		<button class:active={sortMode === 'force'} on:click={() => sortMode = 'force'}>Force</button>
+		<button class:active={sortMode === 'alphabetical'} on:click={() => sortMode = 'alphabetical'}>Alphabetical</button>
+		<button class:active={sortMode === 'size'} on:click={() => sortMode = 'size'}>By Size</button>
+		<button class:active={sortMode === 'circular'} on:click={() => sortMode = 'circular'}>Circular</button>
+	</div>
 	<canvas use:fitToContainer bind:this={canvas}> </canvas>
 </div>
 
@@ -332,5 +407,35 @@
 		color: #000;
 		overflow-y: hidden;
 		padding: 10px;
+	}
+	.controls {
+		position: absolute;
+		bottom: 10px;
+		left: 10px;
+		right: 10px;
+		display: flex;
+		gap: 4px;
+		background: #fff;
+		padding: 6px;
+		border: 1px solid #000;
+		border-radius: 4px;
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+	.controls button {
+		padding: 4px 8px;
+		background: #fff;
+		border: 1px solid #000;
+		cursor: pointer;
+		font-size: 11px;
+		font-family: monospace;
+		flex-shrink: 0;
+	}
+	.controls button:hover {
+		background: #f0f0f0;
+	}
+	.controls button.active {
+		background: #000;
+		color: #fff;
 	}
 </style>
